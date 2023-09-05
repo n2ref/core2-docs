@@ -1,0 +1,80 @@
+site_name: Core2 framework
+site_url: https://github.com/shabuninil/core2
+repo_name: Core2
+repo_url: https://github.com/shabuninil/core2
+theme:
+  name: material
+  language: ru
+  favicon: favicon.ico
+  features:
+    - navigation.sections
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+extra_javascript:
+  - assets/js/highlight.min.js
+  - assets/js/main.js
+extra_css:
+  - assets/css/extra.css
+  - assets/css/highlight.min.css
+plugins:
+  - search:
+      lang: ru
+  - offline:
+nav:
+  - Введение:    index.md
+  - Установка и настройка:
+    - Установка:   install.md
+    - Настройка:   settings.md
+    - Внешний вид: themes.md
+  - Структура фреймворка:
+      - Классы:
+        - Обзор:     framework/classes/review.md
+        - Init:      framework/classes/init.md
+        - Db:        framework/classes/db.md
+        - Acl:       framework/classes/acl.md
+        - Log:       framework/classes/log.md
+        - Cache:     framework/classes/cache.md
+        - Tool:      framework/classes/tool.md
+        - Templater: framework/classes/templater.md
+        - Common:    framework/classes/common.md
+        - CommonApi: framework/classes/common_api.md
+        - Panel:     framework/classes/panel.md
+        - Tabs:      framework/classes/tabs.md
+        - Edit:      framework/classes/edit.md
+        - Table:     framework/classes/table.md
+        - Другие:    framework/classes/other.md
+      - Интерфейсы: framework/interfaces.md
+      - Системные модули:
+        - Обзор:      framework/modules/review.md
+        - Admin:      framework/modules/admin.md
+        - Cron:       framework/modules/cron.md
+        - Profile:    framework/modules/profile.md
+        - Queue:      framework/modules/queue.md
+        - Webservice: framework/modules/webservice.md
+  - Структура модулей:
+    - Обзор:                modules/review.md
+    - Контроллер:           modules/controller.md
+    - Обработка сохранения: modules/handler.md
+    - Командная строка cli: modules/cli.md
+    - Модели таблиц:        modules/models.md
+    - Установка:            modules/install.md
+    - Конфиг:               modules/config.md
+    - REST запросы:         modules/rest.md
+  - Best practice:
+      - Модули:
+        - Модели таблиц:        best_practice\module\model.md
+        - Классы:               best_practice\module\classes.md
+        - Скрипты для браузера: best_practice\module\scripts.md
+        - Контроллер:           best_practice\module\controller.md
+  - Другое:
+    - Тестирование: other/tests.md
+    - Переводы:     other/translations.md

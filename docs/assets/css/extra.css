@@ -1,0 +1,18 @@
+:root, [data-md-color-scheme=default] {
+    --md-default-fg-color--light: #000000c2;
+}
+.md-typeset ol li,
+.md-typeset ul li {
+    margin-bottom: 0;
+}
+.md-typeset {
+    font-size: .7rem;
+}
+.md-nav__link.md-nav__link--active {
+    font-weight: 600;
+}
+@media screen and (min-width: 76.25em) {
+    .md-nav__item--section>.md-nav {
+        padding-left: 8px;
+    }
+}
