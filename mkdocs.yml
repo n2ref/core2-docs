@@ -29,15 +29,18 @@ plugins:
   - search:
       lang: ru
   - offline:
+  - glightbox
 nav:
   - Введение:    index.md
   - Установка и настройка:
     - Установка:   install.md
-    - Настройка:   settings.md
+    - Настройка:
+        - Пользователи и роли:      settings/users_roles.md
+        - Управление модулями:      settings/modules.md
+        - Конфиг ядра и приложения: settings/config.md
     - Внешний вид: themes.md
   - Структура фреймворка:
       - Классы:
-        - Обзор:     framework/classes/review.md
         - Init:      framework/classes/init.md
         - Db:        framework/classes/db.md
         - Acl:       framework/classes/acl.md
@@ -70,6 +73,9 @@ nav:
     - Конфиг:               modules/config.md
     - REST запросы:         modules/rest.md
   - Best practice:
+      - Стили написания кода:
+        - Паттерны проектирования: best_practice\style\patterns.md
+        - PSR:                     best_practice\style\psr.md
       - Модули:
         - Модели таблиц:        best_practice\module\model.md
         - Классы:               best_practice\module\classes.md
