@@ -33,15 +33,14 @@ plugins:
 nav:
   - Введение:    index.md
   - Установка и настройка:
-    - Установка:   install.md
+    - Установка:   setup/install.md
     - Настройка:
-        - Пользователи и роли:      settings/users_roles.md
-        - Управление модулями:      settings/modules.md
-        - Конфиг ядра и приложения: settings/config.md
-    - Внешний вид: themes.md
+        - Пользователи и роли: setup/settings/users_roles.md
+        - Управление модулями: setup/settings/modules.md
+        - Конфиги:             setup/settings/config.md
+    - Внешний вид: setup/themes.md
   - Структура фреймворка:
       - Классы:
-        - Init:      framework/classes/init.md
         - Db:        framework/classes/db.md
         - Acl:       framework/classes/acl.md
         - Log:       framework/classes/log.md
@@ -54,7 +53,6 @@ nav:
         - Tabs:      framework/classes/tabs.md
         - Edit:      framework/classes/edit.md
         - Table:     framework/classes/table.md
-        - Другие:    framework/classes/other.md
       - Интерфейсы: framework/interfaces.md
       - Системные модули:
         - Обзор:      framework/modules/review.md

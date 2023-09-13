@@ -1,7 +1,0 @@
-# Настройка
-
-## Material
-
-## Light
-
-## Default
