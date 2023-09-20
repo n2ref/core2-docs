@@ -82,3 +82,4 @@ nav:
   - Другое:
     - Тестирование: other/tests.md
     - Переводы:     other/translations.md
+    - Документация: other/docs.md
