@@ -1727,176 +1727,175 @@
 <li>MySQL или MariaDb база данных</li>
 </ul>
 <h2 id="linux-debian-ubuntu">Установка компонентов на Linux (Debian / Ubuntu)</h2>
-<p>Выполните консольные команды для обновления системы</p>
-<pre><code class="language-shell">$ sudo apt update
-$ sudo apt upgrade
-</code></pre>
+<p>Выполните консольные команды для обновления системы
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>update
+$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade
+</code></pre></div></p>
 <p>Выполните установку php и требуемых расширений</p>
-<pre><code class="language-shell">$ sudo apt install php8.0 php8.0-{zip,mbstring,curl,gd,intl,mysql,xml,fpm}
-</code></pre>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>php8.0<span class="w"> </span>php8.0-<span class="o">{</span>zip,mbstring,curl,gd,intl,mysql,xml,fpm<span class="o">}</span>
+</code></pre></div>
 <p>Выполните установку nginx или apache2</p>
 <p>Установка nginx</p>
-<pre><code class="language-shell">$ sudo apt install nginx
-</code></pre>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>nginx
+</code></pre></div>
 <p>Установка apache2</p>
-<pre><code class="language-shell">$ sudo apt install apache2
-</code></pre>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>apache2
+</code></pre></div>
 <p>Выполните установку Mysql или MariaDb.</p>
 <p>Установка Mysql для 
 <a href="https://www.cloudbooklet.com/how-to-install-mysql-on-debian-11/">Debian 11</a>, 
 <a href="https://www.digitalocean.com/community/tutorials/how-to-install-the-latest-mysql-on-debian-10">Debian 10</a>,
 <a href="https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-22-04">Ubuntu 22.04</a></p>
-<p>Установка MariaDb</p>
-<pre><code class="language-shell">$ sudo apt install mariadb-server
-</code></pre>
+<p>Установка MariaDb
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>mariadb-server
+</code></pre></div></p>
 <h2 id="core2">Установка Core2</h2>
 <p>1) Скачайте архив c последней версией на <a href="https://github.com/shabuninil/core2/archive/refs/heads/master.zip">github.com</a></p>
 <p>2) В директории <code>DOCUMENT_ROOT</code> вашего проекта создайте папку с названием <code>core2</code> и разместите в нее содержимое архива</p>
 <p>3) Создайте еще 2 папки <code>cache</code> и <code>logs</code> за пределами <code>DOCUMENT_ROOT</code> </p>
-<p>Например чтобы получилось вот такая структура </p>
-<pre><code class="language-text"> .
+<p>Например чтобы получилось вот такая структура 
+<div class="highlight"><pre><span></span><code> .
  ├─ /var/www/project.com/
  │  ├─ htdocs/
  │  │  └─ core2/
  │  │
  │  ├─ cache/  
  │  └─ logs/  
+</code></pre></div></p>
+<p>4) Дайте права доступа на чтение и запись в папки <code>cache</code> и <code>logs</code> для пользователя www-data
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>chmod<span class="w"> </span><span class="m">755</span><span class="w"> </span>/var/www/project.com/cache/
+$<span class="w"> </span>chmod<span class="w"> </span><span class="m">755</span><span class="w"> </span>/var/www/project.com/logs/
 
-</code></pre>
-<p>4) Дайте права доступа на чтение и запись в папки <code>cache</code> и <code>logs</code> для пользователя www-data</p>
-<pre><code class="language-shell">$ chmod 755 /var/www/project.com/cache/
-$ chmod 755 /var/www/project.com/logs/
+$<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>www-data:www-data<span class="w"> </span>/var/www/project.com/cache/
+$<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>www-data:www-data<span class="w"> </span>/var/www/project.com/logs/
+</code></pre></div></p>
+<p>5) В <code>DOCUMENT_ROOT</code> создайте файл <code>index.php</code> со следующем содержимым
+<div class="highlight"><pre><span></span><code><span class="x">try {</span>
+<span class="x">    require_once(&quot;core2/inc/classes/Error.php&quot;);</span>
+<span class="x">    require_once(&quot;core2/inc/classes/Init.php&quot;);</span>
 
-$ chown -R www-data:www-data /var/www/project.com/cache/
-$ chown -R www-data:www-data /var/www/project.com/logs/
-</code></pre>
-<p>5) В <code>DOCUMENT_ROOT</code> создайте файл <code>index.php</code> со следующем содержимым</p>
-<pre><code class="language-php">try {
-    require_once(&quot;core2/inc/classes/Error.php&quot;);
-    require_once(&quot;core2/inc/classes/Init.php&quot;);
+<span class="x">    $init = new Init();</span>
+<span class="x">    $init-&gt;checkAuth();</span>
 
-    $init = new Init();
-    $init-&gt;checkAuth();
-
-    echo $init-&gt;dispatch();
-} catch (Exception $e) {
-    \Core2\Error::catchException($e);
-}
-</code></pre>
+<span class="x">    echo $init-&gt;dispatch();</span>
+<span class="x">} catch (Exception $e) {</span>
+<span class="x">    \Core2\Error::catchException($e);</span>
+<span class="x">}</span>
+</code></pre></div></p>
 <p>6) Создайте новую базу данных с любым названием на вашем MySQL / MariaDb сервере. 
-   В данном примере она будет названа <code>project_com</code>.  </p>
-<pre><code class="language-sql">CREATE SCHEMA project_com COLLATE utf8mb4_general_ci;
-</code></pre>
+   В данном примере она будет названа <code>project_com</code>.<br />
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">SCHEMA</span><span class="w"> </span><span class="n">project_com</span><span class="w"> </span><span class="k">COLLATE</span><span class="w"> </span><span class="n">utf8mb4_general_ci</span><span class="p">;</span>
+</code></pre></div></p>
 <p>7) Скачайте и выполните этот <a href="https://github.com/shabuninil/core2/blob/master/db.sql">sql</a> скрипт, чтобы в вашей базе данных добавились необходимые таблицы.
-   Для этого можно воспользоваться командной строкой.</p>
-<pre><code class="language-shell">$ mysql -u your_user_name -p project_com &lt; db.sql
-</code></pre>
+   Для этого можно воспользоваться командной строкой.
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>mysql<span class="w"> </span>-u<span class="w"> </span>your_user_name<span class="w"> </span>-p<span class="w"> </span>project_com<span class="w"> </span>&lt;<span class="w"> </span>db.sql
+</code></pre></div></p>
 <p>8) В директории рядом с файлом <code>index.php</code> создайте файл конфигурации <code>conf.ini</code> и поместите в него следующий текст.
-   Замените значения для доступа к вашей базе данных, <code>project.com</code> замените на адрес вашего будущего проекта.</p>
-<pre><code class="language-ini">[production]
-database.params.host      = localhost
-database.params.port      = 3306
-database.params.dbname    = &quot;project_com&quot;
-database.params.username  = &quot;your_user_name&quot;
-database.params.password  = &quot;your_user_pass&quot;
+   Замените значения для доступа к вашей базе данных, <code>project.com</code> замените на адрес вашего будущего проекта.
+<div class="highlight"><pre><span></span><code><span class="k">[production]</span>
+<span class="na">database.params.host</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s">localhost</span>
+<span class="na">database.params.port</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s">3306</span>
+<span class="na">database.params.dbname</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;project_com&quot;</span>
+<span class="na">database.params.username</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;your_user_name&quot;</span>
+<span class="na">database.params.password</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;your_user_pass&quot;</span>
 
-[project.com : production]
-system.host       = project.com
-system.theme.name = material
-cache             = /var/www/project.com/cache
-log.on            = true
-log.path          = /var/www/project.com/logs/error.log
-log.system.file   = /var/www/project.com/logs/access.log
-log.system.writer = file
-</code></pre>
+<span class="k">[project.com : production]</span>
+<span class="na">system.host</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="s">project.com</span>
+<span class="na">system.theme.name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">material</span>
+<span class="na">cache</span><span class="w">             </span><span class="o">=</span><span class="w"> </span><span class="s">/var/www/project.com/cache</span>
+<span class="na">log.on</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
+<span class="na">log.path</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="s">/var/www/project.com/logs/error.log</span>
+<span class="na">log.system.file</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s">/var/www/project.com/logs/access.log</span>
+<span class="na">log.system.writer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">file</span>
+</code></pre></div></p>
 <p>9) Скачайте последнюю версию Composer с сайта <a href="https://getcomposer.org/download/">getcomposer.org</a> или по прямой <a href="https://getcomposer.org/download/latest-stable/composer.phar">ссылке</a> </p>
 <p>10) Скопируйте скаченный файл <code>composer.phar</code> в папку <code>core2</code></p>
-<p>11) Откройте консоль и выполните команды для установки зависимых пакетов  </p>
-<pre><code class="language-shell">$ сd /var/www/project.com/htdocs/core2
-$ php composer.phar update
-</code></pre>
+<p>11) Откройте консоль и выполните команды для установки зависимых пакетов<br />
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>сd<span class="w"> </span>/var/www/project.com/htdocs/core2
+$<span class="w"> </span>php<span class="w"> </span>composer.phar<span class="w"> </span>update
+</code></pre></div></p>
 <h2 id="_2">Настройка веб сервера</h2>
 <p>Для запуска приложения необходимо настроить http сервер.</p>
 <h3 id="apache">Рекомендуемые настройки Apache</h3>
 <p>1) В папке <code>/etc/apache2/sites-available/</code> необходимо добавить файл <code>project.com.conf</code>. Замените <code>project.com</code> на адрес вашего проекта. </p>
 <p>2) Поместите в созданный файл следующее содержимое. 
    Замените <code>/var/www/project.com</code>, <code>project.com</code> и <code>php8.0</code> на ваши актуальные значения.</p>
-<pre><code class="language-apacheconf">ServerName project.com
-DocumentRoot &quot;/var/www/project.com/htdocs&quot;
-ErrorLog /var/www/project.com/logs/error_apache.log
+<div class="highlight"><pre><span></span><code><span class="nb">ServerName</span><span class="w"> </span>project.com
+<span class="nb">DocumentRoot</span><span class="w"> </span><span class="s2">&quot;/var/www/project.com/htdocs&quot;</span>
+<span class="nb">ErrorLog</span><span class="w"> </span><span class="sx">/var/www/project.com/logs/error_apache.log</span>
 
-&lt;Directory &quot;/var/www/project.com/htdocs&quot;&gt;
-    Options +Indexes +FollowSymLinks
-    DirectoryIndex index.php
-    Order allow,deny
-    Allow from all
-    AllowOverride All
-    Require all granted
-&lt;/Directory&gt;
+<span class="nt">&lt;Directory</span><span class="w"> </span><span class="s">&quot;/var/www/project.com/htdocs&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nb">Options</span><span class="w"> </span>+Indexes<span class="w"> </span>+FollowSymLinks
+<span class="w">    </span><span class="nb">DirectoryIndex</span><span class="w"> </span>index.php
+<span class="w">    </span><span class="nb">Order</span><span class="w"> </span>allow,deny
+<span class="w">    </span><span class="nb">Allow</span><span class="w"> </span>from<span class="w"> </span><span class="k">all</span>
+<span class="w">    </span><span class="nb">AllowOverride</span><span class="w"> </span><span class="k">All</span>
+<span class="w">    </span><span class="nb">Require</span><span class="w"> </span><span class="k">all</span><span class="w"> </span>granted
+<span class="nt">&lt;/Directory&gt;</span>
 
-&lt;FilesMatch \.php$&gt;
-    SetHandler &quot;proxy:unix:/var/run/php/php8.0-fpm.sock|fcgi://localhost&quot;
-&lt;/FilesMatch&gt;
-</code></pre>
-<p>3) Выполните консольную команды для активации настройки</p>
-<pre><code class="language-shell">$ sudo a2ensite project.com
-$ sudo systemctl restart apache2
-</code></pre>
+<span class="nt">&lt;FilesMatch</span><span class="w"> </span><span class="s">\.php$</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nb">SetHandler</span><span class="w"> </span><span class="s2">&quot;proxy:unix:/var/run/php/php8.0-fpm.sock|fcgi://localhost&quot;</span>
+<span class="nt">&lt;/FilesMatch&gt;</span>
+</code></pre></div>
+<p>3) Выполните консольную команды для активации настройки
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>a2ensite<span class="w"> </span>project.com
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>apache2
+</code></pre></div></p>
 <h3 id="nginx">Рекомендуемые настройки Nginx</h3>
 <p>1) В папке <code>/etc/nginx/sites-available/</code> необходимо добавить файл <code>project.com.conf</code>. Замените <code>project.com</code> на адрес вашего проекта. </p>
 <p>2) Поместите в созданный файл следующее содержимое.
    Замените <code>/var/www/project.com</code>, <code>project.com</code> и <code>php8.0</code> на ваши актуальные значения.</p>
-<pre><code class="language-nginx">server {
-    listen 80;
-    listen [::]:80;
-    server_name project.com;
-    root /var/www/project.com/htdocs;
-    error_log /var/www/project.com/logs/errors_nginx.log warn;
+<div class="highlight"><pre><span></span><code><span class="k">server</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="s">[::]:80</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">server_name</span><span class="w"> </span><span class="s">project.com</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">root</span><span class="w"> </span><span class="s">/var/www/project.com/htdocs</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">error_log</span><span class="w"> </span><span class="s">/var/www/project.com/logs/errors_nginx.log</span><span class="w"> </span><span class="s">warn</span><span class="p">;</span>
 
-    index index.php index.html;
-    client_max_body_size 100M;
+<span class="w">    </span><span class="kn">index</span><span class="w"> </span><span class="s">index.php</span><span class="w"> </span><span class="s">index.html</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">client_max_body_size</span><span class="w"> </span><span class="s">100M</span><span class="p">;</span>
 
-    location / {
-        try_files $uri /index.php?$args;
-    }
+<span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">try_files</span><span class="w"> </span><span class="nv">$uri</span><span class="w"> </span><span class="s">/index.php?</span><span class="nv">$args</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-    location ~ \.php$ {
-        include snippets/fastcgi-php.conf;
-        fastcgi_buffers 8 128k;
-        fastcgi_buffer_size 256k;
-        fastcgi_buffering off;
-        fastcgi_pass unix:/var/run/php/php8.0-fpm.sock;
-    }
+<span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="p">~</span><span class="w"> </span><span class="sr">\.php$</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">include</span><span class="w"> </span><span class="s">snippets/fastcgi-php.conf</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">fastcgi_buffers</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mi">128k</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">fastcgi_buffer_size</span><span class="w"> </span><span class="mi">256k</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">fastcgi_buffering</span><span class="w"> </span><span class="no">off</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">fastcgi_pass</span><span class="w"> </span><span class="s">unix:/var/run/php/php8.0-fpm.sock</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-    location ~ /\.ht {
-        deny all;
-    }
+<span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="p">~</span><span class="w"> </span><span class="sr">/\.ht</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">deny</span><span class="w"> </span><span class="s">all</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-    location ~* (\.ini|\.log|\.conf)$ {
-        deny all;
-    }
-}
-</code></pre>
-<p>3) Выполните консольные команды для активации настройки. Замените <code>project.com</code> на адрес вашего проекта.</p>
-<pre><code class="language-shell">$ sudo ln -s /etc/nginx/sites-available/project.com.conf /etc/nginx/sites-enabled/project.com.conf
-$ sudo systemctl reload nginx
-</code></pre>
+<span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="p">~</span><span class="sr">*</span><span class="w"> </span><span class="s">(\.ini|\.log|\.conf)</span>$<span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">deny</span><span class="w"> </span><span class="s">all</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>3) Выполните консольные команды для активации настройки. Замените <code>project.com</code> на адрес вашего проекта.
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/etc/nginx/sites-available/project.com.conf<span class="w"> </span>/etc/nginx/sites-enabled/project.com.conf
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>reload<span class="w"> </span>nginx
+</code></pre></div></p>
 <h2 id="_3">Проверка установки</h2>
 <p>Если это доменное имя (<code>project_com</code>) не привязано к вашему серверу, то для проверки его работы вы можете добавить домен на своем компьютере в хостах.</p>
 <p><strong>Для Windows</strong></p>
 <p>1) Открыть файл <code>C:\Windows\System32\drivers\etc\hosts</code></p>
-<p>2) Добавить указанную строку в конец этого файла. Замените <code>192.168.10.10</code> на актуальный ip адрес вашего сервера.</p>
-<pre><code class="language-text">192.168.10.10 project.com
-</code></pre>
+<p>2) Добавить указанную строку в конец этого файла. Замените <code>192.168.10.10</code> на актуальный ip адрес вашего сервера.
+<div class="highlight"><pre><span></span><code>192.168.10.10 project.com
+</code></pre></div></p>
 <p><strong>Для Linux</strong></p>
 <p>1) Открыть файл <code>etc/hosts</code></p>
-<p>2) Добавить указанную строку в конец этого файла. Замените <code>192.168.10.10</code> на актуальный ip адрес вашего сервера.</p>
-<pre><code class="language-text">192.168.10.10 project.com
-</code></pre>
+<p>2) Добавить указанную строку в конец этого файла. Замените <code>192.168.10.10</code> на актуальный ip адрес вашего сервера.
+<div class="highlight"><pre><span></span><code>192.168.10.10 project.com
+</code></pre></div></p>
 <hr />
 <p>После установки приложение будет доступно по следующему URL:</p>
-<pre><code class="language-text">http://project.com
-</code></pre>
+<div class="highlight"><pre><span></span><code>http://project.com
+</code></pre></div>
 <p>В случае успеха вы должны будите увидеть страницу логина</p>
 <p>Войдите в приложение используя логин и пароль по умолчанию <code>admin</code> <code>admin</code>. После входа обязательно смените пароль на другой.</p>
 
@@ -1936,7 +1935,7 @@ $ sudo systemctl reload nginx
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections"], "search": "../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "content.code.copy"], "search": "../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}}</script>
     
     
       <script src="../assets/javascripts/bundle.dff1b7c8.min.js"></script>

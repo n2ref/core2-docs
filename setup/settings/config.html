@@ -1667,24 +1667,24 @@
    Такие разделители означают, что переменная будет доступна в виде массива с таким количеством уровней, сколько указано <code>.</code>. </li>
 </ol>
 <p>Конфиги существуют в трех местах: а ядре, в приложении, а так же могут находиться в модулях.</p>
-<p>Пример:</p>
-<pre><code class="language-ini">[production]
-system.timezone = Europe/Minsk
-system.name     = System Name
-system.logo     = logo.png
-system.host     = project.com
+<p>Пример:
+<div class="highlight"><pre><span></span><code><span class="k">[production]</span>
+<span class="na">system.timezone</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Europe/Minsk</span>
+<span class="na">system.name</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s">System Name</span>
+<span class="na">system.logo</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s">logo.png</span>
+<span class="na">system.host</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s">project.com</span>
 
-cache = /var/www/project.com/cache
-temp  = /var/www/project.com/tmp
+<span class="na">cache</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/var/www/project.com/cache</span>
+<span class="na">temp</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s">/var/www/project.com/tmp</span>
 
-system.theme.name         = material
-system.theme.bg_color     = &quot;#273b68&quot;
-system.theme.border_color = &quot;#43c0fb&quot;
-system.theme.text_color   = &quot;#d2d9e5&quot;
+<span class="na">system.theme.name</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="s">material</span>
+<span class="na">system.theme.bg_color</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;</span><span class="c1">#273b68&quot;</span>
+<span class="na">system.theme.border_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;</span><span class="c1">#43c0fb&quot;</span>
+<span class="na">system.theme.text_color</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;</span><span class="c1">#d2d9e5&quot;</span>
 
-[project.com : production]
-system.name = Project.com
-</code></pre>
+<span class="k">[project.com : production]</span>
+<span class="na">system.name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Project.com</span>
+</code></pre></div></p>
 <h2 id="_1">Конфиг ядра</h2>
 <p>Этот конфиг находится в файле <code>core2/conf.ini</code>. Все настройки заданные по умолчанию, как правило, не требуют изменения.
 В них в основном находятся:</p>
@@ -1750,7 +1750,7 @@ system.name = Project.com
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "content.code.copy"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.dff1b7c8.min.js"></script>

@@ -93,6 +93,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#panel" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -708,6 +713,19 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Panel
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="panel.html" class="md-nav__link md-nav__link--active">
         
@@ -718,6 +736,60 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание раздела">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание раздела
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    Простая панель
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    Панель с табами
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    Виды табов
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    Боковые табы
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    Элементы управления
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1551,6 +1623,51 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание раздела
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    Простая панель
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    Панель с табами
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    Виды табов
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    Боковые табы
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    Элементы управления
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1568,9 +1685,363 @@
   
 
 
-  <h1>Panel</h1>
+<h1 id="panel">Класс Panel</h1>
+<p>Класс предназначен для создания элемента интерфейса <code>Панель</code>, на котором будет расположен функционал модуля.</p>
+<p>Пример
+<a class="glightbox" href="img/panel_example.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Пример" src="img/panel_example.png" /></a></p>
+<p>Панель может содержать:</p>
+<ul>
+<li>Заголовок</li>
+<li>Подзаголовок</li>
+<li>Кнопку назад</li>
+<li>Элементы управления (как правило кнопки)</li>
+<li>Табы</li>
+<li>Любой Html внутри тела</li>
+</ul>
+<h2 id="_1">Простая панель</h2>
+<p><a class="glightbox" href="img/panel_simple.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Пример" src="img/panel_simple.png" /></a></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Пример</label><label for="__tabbed_1_2">С комментариями</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="x">require_once DOC_ROOT . &#39;core2/inc/classes/Panel.php&#39;;</span>
 
-<p>Описание</p>
+<span class="x">$panel = new \Panel();</span>
+<span class="x">$panel-&gt;setTitle(&#39;Конфигурация&#39;);</span>
+
+<span class="x">$content = &#39;html content&#39;;    </span>
+
+<span class="x">$panel-&gt;setContent($content);</span>
+<span class="x">echo $panel-&gt;render();</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="x">require_once DOC_ROOT . &#39;core2/inc/classes/Panel.php&#39;;</span>
+
+<span class="x">$panel = new \Panel();</span>
+<span class="x">$panel-&gt;setTitle(&#39;Конфигурация&#39;);</span>
+
+<span class="x">$content = &#39;html content&#39;;</span>
+
+<span class="x">// Установка html содержимого, которое будет показано внутри панели</span>
+<span class="x">$panel-&gt;setContent($content);</span>
+
+<span class="x">// Редер html кода панели</span>
+<span class="x">echo $panel-&gt;render();</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="_2">Панель с табами</h2>
+<p><a class="glightbox" href="img/panel_tabs.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Пример" src="img/panel_tabs.png" /></a></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Пример</label><label for="__tabbed_2_2">С комментариями</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="x">require_once DOC_ROOT . &#39;core2/inc/classes/Panel.php&#39;;</span>
+
+<span class="x">$base_url = &#39;index.php?module=your_mod&amp;action=index&#39;;</span>
+<span class="x">$panel    = new \Panel(&#39;tab&#39;);</span>
+
+<span class="x">$panel-&gt;setTitle(&#39;Конфигурация&#39;, &#39;Описание&#39;, $base_url);</span>
+
+<span class="x">$panel-&gt;addTab(&#39;Настройки системы&#39;,        &#39;system&#39;,   $base_url);</span>
+<span class="x">$panel-&gt;addTab(&#39;Дополнительные параметры&#39;, &#39;extra&#39;,    $base_url);</span>
+<span class="x">$panel-&gt;addTab(&#39;Персональные настройки&#39;,   &#39;personal&#39;, $base_url);</span>
+
+<span class="x">$content = [];</span>
+
+<span class="x">switch ($panel-&gt;getActiveTab()) {</span>
+<span class="x">    case &#39;system&#39;:   $content[] = &#39;tab 1 html&#39;; break;</span>
+<span class="x">    case &#39;extra&#39;:    $content[] = &#39;tab 2 html&#39;; break;</span>
+<span class="x">    case &#39;personal&#39;: $content[] = &#39;tab 3 html&#39;; break;</span>
+<span class="x">}</span>
+
+<span class="x">$panel-&gt;setContent(implode(&#39;&#39;, $content));</span>
+
+<span class="x">echo $panel-&gt;render();</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="x">require_once DOC_ROOT . &#39;core2/inc/classes/Panel.php&#39;;</span>
+
+<span class="x">// Базовый адрес страницы</span>
+<span class="x">$base_url = &#39;index.php?module=your_mod&amp;action=index&#39;;</span>
+
+<span class="x">// Параметр 1 - Идентификатор панели, обязателен при наличии табов</span>
+<span class="x">$panel = new \Panel(&#39;tab&#39;);</span>
+
+<span class="x">// Параметр 1 - Заголовок</span>
+<span class="x">// Параметр 2 - Подзаголовок, необязательный</span>
+<span class="x">// Параметр 3 - Адрес для кнопки &quot;Назад&quot;, необязательный</span>
+<span class="x">$panel-&gt;setTitle(&#39;Конфигурация&#39;, &#39;Описание&#39;, $base_url);</span>
+
+
+<span class="x">// Добавление табов в панель</span>
+<span class="x">// Параметр 1 - Текст таба</span>
+<span class="x">// Параметр 2 - Идентификатор таба  </span>
+<span class="x">// Параметр 3 - Адрес для кнопки &quot;Назад&quot;, необязательный</span>
+<span class="x">$panel-&gt;addTab(&#39;Настройки системы&#39;,        &#39;system&#39;,   $base_url);</span>
+<span class="x">$panel-&gt;addTab(&#39;Дополнительные параметры&#39;, &#39;extra&#39;,    $base_url);</span>
+<span class="x">$panel-&gt;addTab(&#39;Персональные настройки&#39;,   &#39;personal&#39;, $base_url);</span>
+
+<span class="x">$content = [];</span>
+
+<span class="x">// Опредение активного таба по текущему query параметру &amp;tab=system</span>
+<span class="x">switch ($panel-&gt;getActiveTab()) {</span>
+<span class="x">    case &#39;system&#39;:   $content[] = &#39;tab 1 html&#39;; break;</span>
+<span class="x">    case &#39;extra&#39;:    $content[] = &#39;tab 2 html&#39;; break;</span>
+<span class="x">    case &#39;personal&#39;: $content[] = &#39;tab 3 html&#39;; break;</span>
+<span class="x">}</span>
+
+<span class="x">// Установка html содержимого, которое будет показано внутри панели</span>
+<span class="x">$panel-&gt;setContent(implode(&#39;&#39;, $content));</span>
+
+<span class="x">// Редер html кода панели</span>
+<span class="x">echo $panel-&gt;render();</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="_3">Виды табов</h2>
+<p>Вид <code>pills</code> </p>
+<p><a class="glightbox" href="img/panel_tabs_pills.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Пример" src="img/panel_tabs_pills.png" /></a></p>
+<p>Вид <code>steps</code></p>
+<p><a class="glightbox" href="img/panel_tabs_steps.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Пример" src="img/panel_tabs_steps.png" /></a></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Пример</label><label for="__tabbed_3_2">С комментариями</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="x">require_once DOC_ROOT . &#39;core2/inc/classes/Panel.php&#39;;</span>
+
+<span class="x">$base_url = &#39;index.php?module=your_mod&amp;action=index&#39;;</span>
+<span class="x">$panel    = new \Panel(&#39;tab&#39;);</span>
+
+<span class="x">// TYPE_STEPS</span>
+<span class="x">$panel-&gt;setTypeTabs($panel::TYPE_PILLS);</span>
+
+<span class="x">$panel-&gt;addTab(&#39;Настройки системы&#39;,        &#39;system&#39;,   $base_url);</span>
+<span class="x">$panel-&gt;addTab(&#39;Дополнительные параметры&#39;, &#39;extra&#39;,    $base_url);</span>
+<span class="x">$panel-&gt;addTab(&#39;Персональные настройки&#39;,   &#39;personal&#39;, $base_url);</span>
+
+<span class="x">$content = [];</span>
+
+<span class="x">switch ($panel-&gt;getActiveTab()) {</span>
+<span class="x">    case &#39;system&#39;:   $content[] = &#39;tab 1 html&#39;; break;</span>
+<span class="x">    case &#39;extra&#39;:    $content[] = &#39;tab 2 html&#39;; break;</span>
+<span class="x">    case &#39;personal&#39;: $content[] = &#39;tab 3 html&#39;; break;</span>
+<span class="x">}</span>
+
+<span class="x">$panel-&gt;setContent(implode(&#39;&#39;, $content));</span>
+
+<span class="x">echo $panel-&gt;render();</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="x">require_once DOC_ROOT . &#39;core2/inc/classes/Panel.php&#39;;</span>
+
+<span class="x">// Базовый адрес страницы</span>
+<span class="x">$base_url = &#39;index.php?module=your_mod&amp;action=index&#39;;</span>
+<span class="x">$panel    = new \Panel(&#39;tab&#39;);</span>
+
+<span class="x">// Параметр 1 - Тип табов из существующих в классе</span>
+<span class="x">// TYPE_STEPS</span>
+<span class="x">$panel-&gt;setTypeTabs($panel::TYPE_PILLS);</span>
+
+<span class="x">// Добавление табов в панель</span>
+<span class="x">// Параметр 1 - Текст таба</span>
+<span class="x">// Параметр 2 - Идентификатор таба  </span>
+<span class="x">// Параметр 3 - Адрес для кнопки &quot;Назад&quot;, необязательный</span>
+<span class="x">$panel-&gt;addTab(&#39;Настройки системы&#39;,        &#39;system&#39;,   $base_url);</span>
+<span class="x">$panel-&gt;addTab(&#39;Дополнительные параметры&#39;, &#39;extra&#39;,    $base_url);</span>
+<span class="x">$panel-&gt;addTab(&#39;Персональные настройки&#39;,   &#39;personal&#39;, $base_url);</span>
+
+<span class="x">$content = [];</span>
+
+<span class="x">// Опредение активного таба по текущему query параметру &amp;tab=system</span>
+<span class="x">switch ($panel-&gt;getActiveTab()) {</span>
+<span class="x">    case &#39;system&#39;:   $content[] = &#39;tab 1 html&#39;; break;</span>
+<span class="x">    case &#39;extra&#39;:    $content[] = &#39;tab 2 html&#39;; break;</span>
+<span class="x">    case &#39;personal&#39;: $content[] = &#39;tab 3 html&#39;; break;</span>
+<span class="x">}</span>
+
+<span class="x">// Установка html содержимого, которое будет показано внутри панели</span>
+<span class="x">$panel-&gt;setContent(implode(&#39;&#39;, $content));</span>
+
+<span class="x">// Редер html кода панели</span>
+<span class="x">echo $panel-&gt;render();</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="_4">Боковые табы</h2>
+<p><a class="glightbox" href="img/panel_tabs_position.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Пример" src="img/panel_tabs_position.png" /></a></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Пример</label><label for="__tabbed_4_2">С комментариями</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="x">require_once DOC_ROOT . &#39;core2/inc/classes/Panel.php&#39;;</span>
+
+<span class="x">$base_url = &#39;index.php?module=your_mod&amp;action=index&#39;;</span>
+<span class="x">$panel    = new \Panel(&#39;tab&#39;); </span>
+<span class="x">$panel-&gt;setTitle(&#39;Конфигурация&#39;, &#39;Описание&#39;, $base_url);</span>
+
+<span class="x">// POSITION_TOP, POSITION_LEFT, POSITION_RIGHT, POSITION_BOTTOM</span>
+<span class="x">$panel-&gt;setPosition($panel::POSITION_LEFT);</span>
+<span class="x">$panel-&gt;setWidthTabs(240);</span>
+
+<span class="x">$panel-&gt;addTab(&#39;Настройки системы&#39;,        &#39;system&#39;,   $base_url);</span>
+<span class="x">$panel-&gt;addDivider();</span>
+<span class="x">$panel-&gt;addTab(&#39;Дополнительные параметры&#39;, &#39;extra&#39;,    $base_url);</span>
+<span class="x">$panel-&gt;addTab(&#39;Персональные настройки&#39;,   &#39;personal&#39;, $base_url);</span>
+
+<span class="x">$content = [];</span>
+
+<span class="x">switch ($panel-&gt;getActiveTab()) {</span>
+<span class="x">    case &#39;system&#39;:   $content[] = &#39;tab 1 html&#39;; break;</span>
+<span class="x">    case &#39;extra&#39;:    $content[] = &#39;tab 2 html&#39;; break;</span>
+<span class="x">    case &#39;personal&#39;: $content[] = &#39;tab 3 html&#39;; break;</span>
+<span class="x">}</span>
+
+<span class="x">$panel-&gt;setContent(implode(&#39;&#39;, $content));</span>
+
+<span class="x">echo $panel-&gt;render();</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="x">require_once DOC_ROOT . &#39;core2/inc/classes/Panel.php&#39;;</span>
+
+<span class="x">// Базовый адрес страницы</span>
+<span class="x">$base_url = &#39;index.php?module=your_mod&amp;action=index&#39;;</span>
+<span class="x">$panel    = new \Panel(&#39;tab&#39;);</span>
+
+<span class="x">// Указание на положение для табов из существующих положений в классе</span>
+<span class="x">// POSITION_TOP, POSITION_LEFT, POSITION_RIGHT, POSITION_BOTTOM</span>
+<span class="x">$panel-&gt;setPosition($panel::POSITION_LEFT);</span>
+
+<span class="x">// Указание на ширину табов в пикселях</span>
+<span class="x">// Нужно для случаев когда текст не помешается в табе или наоборот, текст слишком короткий</span>
+<span class="x">// По умолчанию 200. Работает только с боковыми табами</span>
+<span class="x">$panel-&gt;setWidthTabs(240);</span>
+
+<span class="x">// Добавление табов в панель</span>
+<span class="x">// Параметр 1 - Текст таба</span>
+<span class="x">// Параметр 2 - Идентификатор таба  </span>
+<span class="x">// Параметр 3 - Адрес для кнопки &quot;Назад&quot;, необязательный</span>
+<span class="x">$panel-&gt;setTitle(&#39;Конфигурация&#39;, &#39;Описание&#39;, $base_url);</span>
+
+
+<span class="x">// Добавление табов в панель</span>
+<span class="x">// Параметр 1 - Текст таба</span>
+<span class="x">// Параметр 2 - Идентификатор таба  </span>
+<span class="x">// Параметр 3 - Адрес для кнопки &quot;Назад&quot;, необязательный</span>
+<span class="x">$panel-&gt;addTab(&#39;Настройки системы&#39;,        &#39;system&#39;,   $base_url);</span>
+
+<span class="x">// Добавляет разделитель между табами, полезно при большом количестве табов</span>
+<span class="x">// Работает только с боковыми табами</span>
+<span class="x">$panel-&gt;addDivider();</span>
+
+<span class="x">$panel-&gt;addTab(&#39;Дополнительные параметры&#39;, &#39;extra&#39;,    $base_url);</span>
+<span class="x">$panel-&gt;addTab(&#39;Персональные настройки&#39;,   &#39;personal&#39;, $base_url);</span>
+
+<span class="x">$content = [];</span>
+
+<span class="x">// Опредение активного таба по текущему query параметру &amp;tab=system</span>
+<span class="x">switch ($panel-&gt;getActiveTab()) {</span>
+<span class="x">    case &#39;system&#39;:   $content[] = &#39;tab 1 html&#39;; break;</span>
+<span class="x">    case &#39;extra&#39;:    $content[] = &#39;tab 2 html&#39;; break;</span>
+<span class="x">    case &#39;personal&#39;: $content[] = &#39;tab 3 html&#39;; break;</span>
+<span class="x">}</span>
+
+<span class="x">// Установка html содержимого, которое будет показано внутри панели</span>
+<span class="x">$panel-&gt;setContent(implode(&#39;&#39;, $content));</span>
+
+<span class="x">// Редер html кода панели</span>
+<span class="x">echo $panel-&gt;render();</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="_5">Элементы управления</h2>
+<p><a class="glightbox" href="img/panel_controls.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Пример" src="img/panel_controls.png" /></a></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Пример</label><label for="__tabbed_5_2">С комментариями</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="x">require_once DOC_ROOT . &#39;core2/inc/classes/Panel.php&#39;;</span>
+
+<span class="x">$base_url = &#39;index.php?module=your_mod&amp;action=index&#39;;</span>
+<span class="x">$panel    = new \Panel(&#39;tab&#39;); </span>
+<span class="x">$panel-&gt;setTitle(&#39;Конфигурация&#39;, &#39;Описание&#39;, $base_url);</span>
+
+<span class="x">$panel-&gt;addControls(&#39;button_1&#39;, &#39;&lt;i class=&quot;fa fa-print&quot;&gt;&lt;/i&gt; Печать&#39;, &#39;onclick_btn1_func()&#39;);</span>
+<span class="x">$panel-&gt;addControls(&#39;button_2&#39;, &#39;Экспорт&#39;,                            &#39;onclick_btn2_func()&#39;);</span>
+
+<span class="x">$panel-&gt;addControlsCustom(&#39;&lt;b&gt;Custom html control&lt;/b&gt;&#39;);</span>
+
+<span class="x">$panel-&gt;addTab(&#39;Настройки системы&#39;,        &#39;system&#39;,   $base_url);</span>
+<span class="x">$panel-&gt;addTab(&#39;Дополнительные параметры&#39;, &#39;extra&#39;,    $base_url);</span>
+<span class="x">$panel-&gt;addTab(&#39;Персональные настройки&#39;,   &#39;personal&#39;, $base_url);</span>
+
+<span class="x">$content = [];</span>
+
+<span class="x">switch ($panel-&gt;getActiveTab()) {</span>
+<span class="x">    case &#39;system&#39;:   $content[] = &#39;tab 1 html&#39;; break;</span>
+<span class="x">    case &#39;extra&#39;:    $content[] = &#39;tab 2 html&#39;; break;</span>
+<span class="x">    case &#39;personal&#39;: $content[] = &#39;tab 3 html&#39;; break;</span>
+<span class="x">}</span>
+
+<span class="x">$panel-&gt;setContent(implode(&#39;&#39;, $content));</span>
+
+<span class="x">echo $panel-&gt;render();</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="x">require_once DOC_ROOT . &#39;core2/inc/classes/Panel.php&#39;;</span>
+
+<span class="x">// Базовый адрес страницы</span>
+<span class="x">$base_url = &#39;index.php?module=your_mod&amp;action=index&#39;;</span>
+<span class="x">$panel    = new \Panel(&#39;tab&#39;);</span>
+
+<span class="x">// Параметр 1 - Заголовок</span>
+<span class="x">// Параметр 2 - Подзаголовок, необязательный</span>
+<span class="x">// Параметр 3 - Адрес для кнопки &quot;Назад&quot;, необязательный</span>
+<span class="x">$panel-&gt;setTitle(&#39;Конфигурация&#39;, &#39;Описание&#39;, $base_url);</span>
+
+
+<span class="x">// Добавление кнопок на панель</span>
+<span class="x">// Параметр 1 - Id кнопки</span>
+<span class="x">// Параметр 2 - Содержимое кнопки, допускается html</span>
+<span class="x">// Параметр 3 - JS функция которая будет выполнена при нажатии</span>
+<span class="x">$panel-&gt;addControls(&#39;button_1&#39;, &#39;&lt;i class=&quot;fa fa-print&quot;&gt;&lt;/i&gt; Печать&#39;, &#39;onclick_btn1_func()&#39;);</span>
+<span class="x">$panel-&gt;addControls(&#39;button_2&#39;, &#39;Экспорт&#39;,                            &#39;onclick_btn2_func()&#39;);</span>
+
+<span class="x">// Добавление костомного контрола на панель</span>
+<span class="x">// Может содержать любой html код</span>
+<span class="x">$panel-&gt;addControlsCustom(&#39;&lt;b&gt;Custom html control&lt;/b&gt;&#39;);</span>
+
+
+<span class="x">// Добавление табов в панель</span>
+<span class="x">// Параметр 1 - Текст таба</span>
+<span class="x">// Параметр 2 - Идентификатор таба  </span>
+<span class="x">// Параметр 3 - Адрес для кнопки &quot;Назад&quot;, необязательный</span>
+<span class="x">$panel-&gt;addTab(&#39;Настройки системы&#39;,        &#39;system&#39;,   $base_url);</span>
+<span class="x">$panel-&gt;addTab(&#39;Дополнительные параметры&#39;, &#39;extra&#39;,    $base_url);</span>
+<span class="x">$panel-&gt;addTab(&#39;Персональные настройки&#39;,   &#39;personal&#39;, $base_url);</span>
+
+<span class="x">$content = [];</span>
+
+<span class="x">// Опредение активного таба по текущему query параметру &amp;tab=system</span>
+<span class="x">switch ($panel-&gt;getActiveTab()) {</span>
+<span class="x">    case &#39;system&#39;:   $content[] = &#39;tab 1 html&#39;; break;</span>
+<span class="x">    case &#39;extra&#39;:    $content[] = &#39;tab 2 html&#39;; break;</span>
+<span class="x">    case &#39;personal&#39;: $content[] = &#39;tab 3 html&#39;; break;</span>
+<span class="x">}</span>
+
+<span class="x">// Установка html содержимого, которое будет показано внутри панели</span>
+<span class="x">$panel-&gt;setContent(implode(&#39;&#39;, $content));</span>
+
+<span class="x">// Редер html кода панели</span>
+<span class="x">echo $panel-&gt;render();</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 
 
 
@@ -1608,7 +2079,7 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "content.code.copy"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.dff1b7c8.min.js"></script>

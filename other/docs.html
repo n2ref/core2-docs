@@ -1650,17 +1650,17 @@
   <h1>Документация</h1>
 
 <p>Вся документация ведется в файлах формата <a href="https://ru.wikipedia.org/wiki/Markdown">Markdown</a>. 
-Созданные файлы автоматически собирается в сайт с помощью приложения <a href="https://www.mkdocs.org/">MkDocs</a></p>
+Созданные файлы автоматически собираются в сайт с помощью приложения <a href="https://www.mkdocs.org/">MkDocs</a></p>
 <h2 id="mkdocs">Установка MkDocs</h2>
 <p>1) Перейдите на страницу приложения и выполните указанные действия для установки базовой версии. 
    <a href="https://www.mkdocs.org/user-guide/installation/">MkDocs Installation</a></p>
 <p>2) Установите несколько плагинов требуемых для сборки </p>
-<p>Внешний вид <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a> </p>
-<pre><code class="language-shell">$ pip install mkdocs-material
-</code></pre>
-<p>Плагин для отображения картинок на весь экран.</p>
-<pre><code class="language-shell">$ pip install mkdocs-glightbox
-</code></pre>
+<p>Внешний вид <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a> 
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>mkdocs-material
+</code></pre></div></p>
+<p>Плагин для отображения картинок на весь экран.
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>mkdocs-glightbox
+</code></pre></div></p>
 <p><a href="https://squidfunk.github.io/mkdocs-material/getting-started">Подробнее</a></p>
 <h2 id="_1">Настройка сайта документации</h2>
 <p>Основная информация о всех нюансах настройки расположена на сайте приложения:</p>
@@ -1682,22 +1682,23 @@
 <li><strong>palette</strong>  - Тонкая настройка <a href="https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/">внешнего вида</a> сайта (цвета, логотипы и тд.)</li>
 </ul>
 </li>
-<li><strong>extra_javascript</strong> - Дополнительные <code>JS</code> скрипты добавленные на страницы</li>
-<li><strong>extra_css</strong>        - Дополнительные <code>CSS</code> скрипты добавленные на страницы</li>
-<li><strong>plugins</strong>          - Активные <a href="https://squidfunk.github.io/mkdocs-material/reference/images/?h=glightbox#lightbox">плагины</a></li>
-<li><strong>nav</strong>              - Самая важная часть - <a href="https://www.mkdocs.org/getting-started/">список страниц</a><ul>
+<li><strong>extra_javascript</strong>    - Дополнительные <code>JS</code> скрипты добавленные на страницы</li>
+<li><strong>extra_css</strong>           - Дополнительные <code>CSS</code> скрипты добавленные на страницы</li>
+<li><strong>plugins</strong>             - Активные <a href="https://squidfunk.github.io/mkdocs-material/reference/images/?h=glightbox#lightbox">плагины</a></li>
+<li><strong>markdown_extensions</strong> - Дополнительные <a href="https://squidfunk.github.io/mkdocs-material/reference/content-tabs/#grouping-other-content-unordered-list">расширения</a> для парсинга markdown</li>
+<li><strong>nav</strong>                 - Самая важная часть - <a href="https://www.mkdocs.org/getting-started/">список страниц</a><ul>
 <li>Все указанные в этом разделе пункты должны иметь название и путь до файла <code>.md</code></li>
 </ul>
 </li>
 </ul>
 <h2 id="_2">Запуск и сборка сайта документации</h2>
 <p>Для онлайн просмотра содержимого документации на своем компьютере выполните команду 
-и после этого перейдите на страницу <a href="http://localhost:8000">localhost:8000</a></p>
-<pre><code class="language-shell">$  python -m mkdocs serve
-</code></pre>
-<p>Для сборки сайта документации выполните команду</p>
-<pre><code class="language-shell">$  python -m mkdocs build 
-</code></pre>
+и после этого перейдите на страницу <a href="http://localhost:8000">localhost:8000</a>
+<div class="highlight"><pre><span></span><code>$<span class="w">  </span>python<span class="w"> </span>-m<span class="w"> </span>mkdocs<span class="w"> </span>serve
+</code></pre></div></p>
+<p>Для сборки сайта документации выполните команду
+<div class="highlight"><pre><span></span><code>$<span class="w">  </span>python<span class="w"> </span>-m<span class="w"> </span>mkdocs<span class="w"> </span>build<span class="w"> </span>
+</code></pre></div></p>
 <p>После этого созданный сайт будет помещен в папку <code>/site</code> в корне проекта   </p>
 <p>Более подробно о командах можно узнать на странице приложения - <a href="https://www.mkdocs.org/user-guide/cli/">Command Line Interface</a> </p>
 
@@ -1737,7 +1738,7 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections"], "search": "../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "content.code.copy"], "search": "../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}}</script>
     
     
       <script src="../assets/javascripts/bundle.dff1b7c8.min.js"></script>
