@@ -8,6 +8,7 @@ theme:
   favicon: favicon.ico
   features:
     - navigation.sections
+    - content.code.copy
   palette:
     - scheme: default
       primary: indigo
@@ -30,6 +31,10 @@ plugins:
       lang: ru
   - offline:
   - glightbox
+markdown_extensions:
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
 nav:
   - Введение:    index.md
   - Установка и настройка:

@@ -1,6 +1,6 @@
 
 Вся документация ведется в файлах формата [Markdown](https://ru.wikipedia.org/wiki/Markdown). 
-Созданные файлы автоматически собирается в сайт с помощью приложения [MkDocs](https://www.mkdocs.org/)
+Созданные файлы автоматически собираются в сайт с помощью приложения [MkDocs](https://www.mkdocs.org/)
 
 
 ## Установка MkDocs
@@ -42,10 +42,11 @@ $ pip install mkdocs-glightbox
     - **name**     - [Имя темы](https://www.mkdocs.org/user-guide/choosing-your-theme/)
     - **features** - Список активных [функций](https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/?h=navigation+sections) 
     - **palette**  - Тонкая настройка [внешнего вида](https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/) сайта (цвета, логотипы и тд.)
-- **extra_javascript** - Дополнительные `JS` скрипты добавленные на страницы
-- **extra_css**        - Дополнительные `CSS` скрипты добавленные на страницы
-- **plugins**          - Активные [плагины](https://squidfunk.github.io/mkdocs-material/reference/images/?h=glightbox#lightbox)
-- **nav**              - Самая важная часть - [список страниц](https://www.mkdocs.org/getting-started/)
+- **extra_javascript**    - Дополнительные `JS` скрипты добавленные на страницы
+- **extra_css**           - Дополнительные `CSS` скрипты добавленные на страницы
+- **plugins**             - Активные [плагины](https://squidfunk.github.io/mkdocs-material/reference/images/?h=glightbox#lightbox)
+- **markdown_extensions** - Дополнительные [расширения](https://squidfunk.github.io/mkdocs-material/reference/content-tabs/#grouping-other-content-unordered-list) для парсинга markdown
+- **nav**                 - Самая важная часть - [список страниц](https://www.mkdocs.org/getting-started/)
     - Все указанные в этом разделе пункты должны иметь название и путь до файла `.md`
 
 ## Запуск и сборка сайта документации
