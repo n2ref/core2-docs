@@ -2,212 +2,174 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://github.com/shabuninil/core2/index.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/best_practice/module/classes.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/best_practice/module/controller.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/best_practice/module/model.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/best_practice/module/scripts.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/best_practice/style/patterns.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/best_practice/style/psr.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/framework/interfaces.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/framework/classes/acl.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/framework/classes/cache.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/framework/classes/common.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/framework/classes/common_api.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/framework/classes/db.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/framework/classes/edit.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/framework/classes/log.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/framework/classes/panel.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/framework/classes/table.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/framework/classes/tabs.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/framework/classes/templater.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/framework/classes/tool.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
+    </url>
+    <url>
+         <loc>https://github.com/shabuninil/core2/framework/edit/tags.html</loc>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/framework/modules/admin.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/framework/modules/cron.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/framework/modules/profile.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/framework/modules/queue.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/framework/modules/review.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/framework/modules/webservice.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/modules/cli.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/modules/config.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/modules/controller.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/modules/handler.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/modules/install.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/modules/models.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/modules/rest.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/modules/review.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/other/docs.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/other/tests.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/other/translations.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/setup/install.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/setup/themes.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/setup/settings/config.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/setup/settings/modules.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
     <url>
          <loc>https://github.com/shabuninil/core2/setup/settings/users_roles.html</loc>
-         <lastmod>2023-09-24</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-09-25</lastmod>
     </url>
 </urlset>
