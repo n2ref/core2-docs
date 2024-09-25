@@ -59,6 +59,8 @@ nav:
         - Edit:      framework/classes/edit.md
         - Table:     framework/classes/table.md
       - Интерфейсы: framework/interfaces.md
+      - Поля формы:
+          - Tags:     framework/edit/tags.md
       - Системные модули:
         - Обзор:      framework/modules/review.md
         - Admin:      framework/modules/admin.md
