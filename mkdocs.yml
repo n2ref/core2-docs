@@ -78,6 +78,7 @@ nav:
   - Best practice:
       - Стили написания кода:
         - Паттерны проектирования: best_practice\style\patterns.md
+        - База данных:             best_practice\style\database.md
         - PSR:                     best_practice\style\psr.md
       - Модули:
         - Модели таблиц:        best_practice\module\model.md
