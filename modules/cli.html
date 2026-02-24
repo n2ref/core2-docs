@@ -1405,6 +1405,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../best_practice/style/database.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    База данных
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../best_practice/style/psr.md" class="md-nav__link">
         
   
@@ -1709,7 +1730,38 @@
 
   <h1>Командная строка cli</h1>
 
+<p>В модуле, опционально, может быть файл, который хранит класс для работы модуля через интерфейс cli. 
+Это дает возможность создавать функционал который отвязан от действий пользователя и может 
+запускаться автоматически или по определенному расписанию.</p>
+<p>Файл <strong>ДОЛЖЕН</strong> называться начиная с <code>Mod</code>, название модуля и <code>Cli.php</code>, например <code>ModOrdersCli.php</code>. 
+Внутри себя он <strong>ДОЛЖЕН</strong> хранить класс с таким же названием, например <code>ModOrdersCli</code>.</p>
+<p>Для запуска в интерфейсе cli требуется выполнить команду <code>$ php core2/cli.php --module orders --action exampleMethod --param 123 --param "foo bar"</code>.
+При этом в классе должен существовать публичный метод exampleMethod, у которого есть два входящих параметра.
+За дополнительным описанием по работе с командной строкой можно обратиться вызвав <code>$ php core2/cli.php --help"</code>.
+Вызвав команду приведенную выше, будет запущен метод <code>exampleMethod</code> с переданными в команде параметрами вставленными по порядку их следования.</p>
+<p>Подобные методы можно вызывать из модуля системы <code>cron</code> (имеется в виду не linux crontab) и там же можно настраивать периодичность их выполнения. 
+Для выбора методов происходит рефакторинг кода из этого файла и вытаскивается описание методов, 
+что дает возможность использовать комментарии к методу как название задачи. 
+РЕКОМЕНДУЕТСЯ кратко описывать назначение таких методов. </p>
+<div class="highlight"><pre><span></span><code><span class="x">require_once DOC_ROOT . &#39;core2/inc/classes/CommonCli.php&#39;;</span>
 
+<span class="x">/**</span>
+<span class="x"> * </span>
+<span class="x"> */</span>
+<span class="x">class ModOrdersCli extends \Core2\CommonCli {</span>
+
+
+<span class="x">    /**</span>
+<span class="x">     * Тестовый cli метод </span>
+<span class="x">     * @param int $id</span>
+<span class="x">     * @param string $text</span>
+<span class="x">     * @return void</span>
+<span class="x">     */</span>
+<span class="x">    public function exampleMethod(int $id, string $text): void {</span>
+<span class="x">       echo &quot;123&quot;</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</code></pre></div>
 
 
 

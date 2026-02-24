@@ -88,6 +88,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1173,6 +1178,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Обработка сохранения
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="handler.html" class="md-nav__link md-nav__link--active">
         
   
@@ -1182,6 +1198,68 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Валидация
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Очистка данных
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Данные из сессий
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Сохранение данных
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ответ о результате сохранения
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1389,6 +1467,27 @@
   
   <span class="md-ellipsis">
     Паттерны проектирования
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../best_practice/style/database.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    База данных
   </span>
   
 
@@ -1691,6 +1790,59 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Валидация
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Очистка данных
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Данные из сессий
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Сохранение данных
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ответ о результате сохранения
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1709,7 +1861,136 @@
 
   <h1>Обработка сохранения</h1>
 
+<p>Для обработки сохранения с форм модуля используется файл <code>ModAjax.php</code>, он находится в корне модуля.
+Он должен наследоваться от класса <code>ajaxFunc</code>, который дает необходимую функциональность.</p>
+<p>Файл содержит набор публичных методов, названия которых начинаются на <code>ax</code>. 
+Такие методы вызываются если на странице с формы будет отправлен запрос на сохранение. 
+У каждой формы есть название метода который должен выполниться для сохранения своего объекта.</p>
+<p>Метод сохранения имеет входящий параметр <code>$data</code> в котором находятся сохраняемые и вспомогательные данные.
+Все сохраняемые данные должны находиться в ключе <code>$data['control']</code>. 
+К вспомогательным, по умолчанию, относятся <code>$data['class_id']</code>, <code>$data['class_refid']</code> в которых хранятся описание сохраняемого объекта. 
+Могут быть и другие вспомогательные параметры.</p>
+<h4 id="_1">Валидация</h4>
+<p>Для валидации сохраняемых данных в классе имеется метод <code>ajaxValidate</code>, он принимает переменную <code>$data</code>, 
+список полей которые требуется валидировать и как именно их требуется валидировать.</p>
+<div class="highlight"><pre><span></span><code><span class="x">if ($this-&gt;ajaxValidate($data, [</span>
+<span class="x">    &#39;form_field1&#39; =&gt; &#39;req&#39;,</span>
+<span class="x">    &#39;form_field2&#39; =&gt; &#39;req,int&#39;,</span>
+<span class="x">    &#39;form_field3&#39; =&gt; &#39;email&#39;,</span>
+<span class="x">]) {</span>
+<span class="x">    return $this-&gt;response;</span>
+<span class="x">}</span>
+</code></pre></div>
+<p>Возможные виды валидации:
+1. req - параметр является обязательным для заполнения
+2. int - параметр имеет тип int<br />
+3. float - параметр имеет тип float
+4. email - параметр содержит email</p>
+<h4 id="_2">Очистка данных</h4>
+<p>Сохраняемые данные можно очистить от лишнего мусора. 
+Например, от лишних пробелов в полях или от тегов в данных которые может отправить пользователь.
+Для этого можно использовать встроенную функцию <code>$this-&gt;clearData()</code>
+По умолчанию она именно это и делает, но можно передать список функций которые должны выполниться для каждого значения в данных <code>$data['control']</code> </p>
+<p>Пример
+<div class="highlight"><pre><span></span><code><span class="x">$data[&#39;control&#39;] = $this-&gt;clearData($data[&#39;control&#39;]);</span>
+</code></pre></div></p>
+<h4 id="_3">Данные из сессий</h4>
+<p>При сохранении можно получать вспомогательные данные из сессии. 
+Это дает возможность не хранить чувствительные или "секретные" данные на странице у пользователя.
+Пр необходимости, такие данные ложатся в сессию при формировании формы и получаются в методе сохранения через метод <code>$this-&gt;getSessFormField()</code>.</p>
+<p>Пример
+<div class="highlight"><pre><span></span><code><span class="x">// Получение id сохраняемого объекта</span>
+<span class="x">$refid = $this-&gt;getSessFormField($data[&#39;class_id&#39;], &#39;refid&#39;);</span>
 
+<span class="x">// Получение каких-то своих данных </span>
+<span class="x">$example_data = $this-&gt;getSessFormField($data[&#39;class_id&#39;], &#39;example_data&#39;);</span>
+</code></pre></div></p>
+<h4 id="_4">Сохранение данных</h4>
+<p>Перед сохранением данных в базе есть возможность их редактировать, для этого допускается изменение переменных в массиве <code>$data['control']</code>.
+Чтобы произошло сохранение все его ключи должны иметь такое же название полей как названия полей в таблице.   </p>
+<p>Пример
+<div class="highlight"><pre><span></span><code><span class="x">// если $refid пуст, то значит это создание новой записи, а не редактирование </span>
+<span class="x">if (empty($refid)) {</span>
+<span class="x">    // заполнение полей данными по умолчанию</span>
+<span class="x">    $data[&#39;control&#39;][&#39;date_created&#39;] = date(&#39;Y-m-d H:i:s&#39;);</span>
+<span class="x">}</span>
+</code></pre></div></p>
+<p>После того как данные будут готовы к сохранению, можно вызвать метод сохранения <code>$this-&gt;saveDataModel()</code>.
+Это метод принимает модель таблицы, в которую производится сохранение и данные для сохранения.
+В результате сохранения будет возвращен объект <code>\Zend_Db_Table_Row_Abstract</code> сохраненного объекта.  </p>
+<p>Пример
+<div class="highlight"><pre><span></span><code><span class="x">$order_row = $this-&gt;saveDataModel($this-&gt;modOrders-&gt;dataOrders, $order_data);</span>
+</code></pre></div></p>
+<h4 id="_5">Ответ о результате сохранения</h4>
+<p>После сохранения данных или при возникновении ошибок метод сохранения обязан вернуть объект <code>$this-&gt;response</code>.
+В этом находится данные с результатом выполнения. </p>
+<p>Для того чтобы вернуть ответ с успешным сохранением требуется предварительно выполнить метод <code>$this-&gt;done()</code>.
+Дополнительно, при необходимости, можно выполнить какой-то js скрипт на странице, выполнив метод <code>$this-&gt;response-&gt;script()</code> </p>
+<p>Пример
+<div class="highlight"><pre><span></span><code><span class="x">$this-&gt;response-&gt;script(&quot;CoreUI.notice.create(&#39;Сохранено&#39;);&quot;);</span>
+<span class="x">$this-&gt;done($data);</span>
+<span class="x">return $this-&gt;response;</span>
+</code></pre></div></p>
+<p>Для того чтобы вернуть ответ с ошибкой требуется предварительно заполнить список ошибок и выполнить метод <code>$this-&gt;displayError()</code></p>
+<p>Пример
+<div class="highlight"><pre><span></span><code><span class="x">$this-&gt;error[] = &#39;Текст ошибки которую увидит пользователь на странице формы&#39;;</span>
+<span class="x">$this-&gt;displayError($data);</span>
+<span class="x">return $this-&gt;response;</span>
+</code></pre></div></p>
+<p>Пример файла целиком
+<div class="highlight"><pre><span></span><code><span class="x">require_once DOC_ROOT . &quot;core2/inc/ajax.func.php&quot;;</span>
+
+
+<span class="x">/**</span>
+<span class="x"> * </span>
+<span class="x"> */</span>
+<span class="x">class ModAjax extends ajaxFunc {</span>
+
+<span class="x">    /**</span>
+<span class="x">     * Сохранение заказа </span>
+<span class="x">     * @param array $data</span>
+<span class="x">     * @return xajaxResponse</span>
+<span class="x">     * @throws Exception</span>
+<span class="x">     */</span>
+<span class="x">    public function axSaveOrder(array $data): xajaxResponse {</span>
+
+<span class="x">        if ($this-&gt;ajaxValidate($data, [</span>
+<span class="x">            &#39;form_field1&#39; =&gt; &#39;req&#39;,</span>
+<span class="x">            &#39;form_field2&#39; =&gt; &#39;req,int&#39;,</span>
+<span class="x">            &#39;form_field3&#39; =&gt; &#39;req,email&#39;,</span>
+<span class="x">        ]) {</span>
+<span class="x">            return $this-&gt;response;</span>
+<span class="x">        }</span>
+
+<span class="x">        $data[&#39;control&#39;] = $this-&gt;clearData($data[&#39;control&#39;]);</span>
+
+
+<span class="x">        $refid = $this-&gt;getSessFormField($data[&#39;class_id&#39;], &#39;refid&#39;);</span>
+
+<span class="x">        $this-&gt;db-&gt;beginTransaction();</span>
+<span class="x">        try {</span>
+<span class="x">            if (empty($refid)) {</span>
+<span class="x">                $data[&#39;control&#39;][&#39;date_created&#39;] = date(&#39;Y-m-d H:i:s&#39;);</span>
+<span class="x">            }</span>
+
+<span class="x">            $order_row = $this-&gt;saveDataModel($this-&gt;modOrders-&gt;dataOrders, $order_data);</span>
+
+
+<span class="x">            $this-&gt;response-&gt;script(&quot;CoreUI.notice.create(&#39;Сохранено&#39;);&quot;);</span>
+<span class="x">            $this-&gt;response-&gt;script(&quot;load(&#39;index.php?module=orders&amp;action=index&amp;edit={$order_row-&gt;id}&#39;);&quot;);</span>
+
+<span class="x">            $this-&gt;db-&gt;commit();</span>
+
+<span class="x">        } catch (Exception $e) {</span>
+<span class="x">            $this-&gt;db-&gt;rollBack();</span>
+<span class="x">            $this-&gt;error[] = $e-&gt;getMessage();</span>
+<span class="x">        }</span>
+
+<span class="x">        $this-&gt;done($data);</span>
+<span class="x">        return $this-&gt;response;</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</code></pre></div></p>
 
 
 

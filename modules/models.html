@@ -1405,6 +1405,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../best_practice/style/database.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    База данных
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../best_practice/style/psr.md" class="md-nav__link">
         
   
@@ -1709,7 +1730,45 @@
 
   <h1>Модели таблиц</h1>
 
+<p>Для работы с таблицами базы данных <strong>НУЖНО</strong> использовать модели таблиц. 
+Для этого в папке модуля <code>Models</code> требуется добавить все относящиеся к модулю таблицы в виде классов в своих отдельных файлах.</p>
+<p>Класс <strong>ДОЛЖЕН</strong> наследоваться от класса <code>\Zend_Db_Table_Abstract</code>, который дает требуемую функциональность.
+Далее, в таком классе обязательно <strong>ДОЛЖНО</strong> быть указано название таблицы в параметре <code>$_name</code>, остальные данные опциональны.</p>
+<p>Таким образом если таблица в базе данных называется <code>mod_orders_products</code>, то файл <strong>ДОЛЖЕН</strong> иметь в своем названии
+такое же название, но без приставки <code>mod_</code> в формате CamelCase. Соответственно так же должен называться и класс.</p>
+<p>РЕКОМЕНДУЕТСЯ добавлять названия таких моделей в docblock контроллера модуля, для более удобной работы в IDE.</p>
+<p>Пример
+<div class="highlight"><pre><span></span><code><span class="x">/**</span>
+<span class="x"> * @property \TableOrders         $dataTableOrders</span>
+<span class="x"> * @property \TableOrdersProducts $dataTableOrdersProducts</span>
+<span class="x"> */</span>
+<span class="x">class ModOrderingController extends Common {}</span>
+</code></pre></div></p>
+<p>В классе можно добавлять методы для получения объектов строк, РЕКОМЕНДУЕТСЯ называть их начиная с <code>getRowBy</code> или <code>getRowsBy</code> 
+и далее указывать поля ко которым будет происходить выборка, например <code>getRowById</code>. 
+Внутри класса РЕКОМЕНДУЕТСЯ работать только с данными этой таблицы, к которой он относится. </p>
+<p>Пример файла 
+<div class="highlight"><pre><span></span><code><span class="x">/**</span>
+<span class="x"> *</span>
+<span class="x"> */</span>
+<span class="x">class TableOrdersProducts extends Zend_Db_Table_Abstract {</span>
 
+<span class="x">    protected $_name = &#39;mod_orders_products&#39;;</span>
+
+
+<span class="x">    /**</span>
+<span class="x">     * Получение объекта по id</span>
+<span class="x">     * @param int $id</span>
+<span class="x">     * @return Zend_Db_Table_Row_Abstract|null</span>
+<span class="x">     */</span>
+<span class="x">    public function getRowById(int $id):? Zend_Db_Table_Row_Abstract {</span>
+
+<span class="x">        $select = $this-&gt;select()-&gt;where(&quot;id = ?&quot;, $id);</span>
+
+<span class="x">        return $this-&gt;fetchRow($select);</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</code></pre></div></p>
 
 
 

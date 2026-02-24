@@ -1405,6 +1405,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../best_practice/style/database.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    База данных
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../best_practice/style/psr.md" class="md-nav__link">
         
   
@@ -1709,7 +1730,66 @@
 
   <h1>REST запросы</h1>
 
+<p>Для работы с модулем по средствам архитектурного стиля REST api в корень модуля нужно добавить файл api контроллер.
+Такой файл должен называться начиная с <code>Mod</code>, далее название модуля и <code>Api.php</code>, например <code>ModOrdersApi.php</code>.
+Внутри файла должен находиться класс с таким же названием, например <code>ModOrdersApi</code>.</p>
+<p>Для обработки REST запросов, внутри api класса <strong>ДОЛЖНЫ</strong> находиться публичные методы, 
+названия которых начинается на <code>action_</code> и далее название субмодуля или index, например <code>action_index</code>. 
+Авторизованные запросы будет попадать в такие методы, если у роли пользователя достаточно прав на доступ к ним.
+Метод <code>action_index</code> является методом главной страницы и он доступен если есть доступ к модулю. </p>
+<p>Чтобы запросы были обработаны модулем, они <strong>ДОЛЖНЫ</strong> иметь адрес начинающийся на название модуля и далее субмодуля (или index).
+Например <code>https://host.com/orders/index</code> чтобы запрос обработал метод <code>action_index</code> или <code>https://host.com/orders/example</code> 
+чтобы его обработал метод <code>action_example</code>. Важно, если субмодуль не зарегистрирован в системе, то метод с его названием не будет открыт, 
+даже если он будет существовать.  </p>
+<p>При попадании запроса в необходимый метод РЕКОМЕНДУЕТСЯ использовать системный класс <code>\Core2\Routing\Router</code> для его обработки и ответа.
+Описание работы с этим классом можно посмотреть в соответствующем разделе документации.</p>
+<p>После добавления обработки соответствующих роутов их требуется описать в файле <code>schema.json</code>. 
+Файл содержит json в формате <code>openapi</code>. Роуты добавленные в него будут доступны в <code>swagger</code> и <code>scalar</code> системы.
+Их можно открыть для просмотра по адресу <code>https://example.com/core2/swagger/index.html</code> или <code>https://example.com/core2/scalar/index.html</code>.</p>
+<p>Пример содержимого файла 
+<div class="highlight"><pre><span></span><code><span class="x">require_once DOC_ROOT . &quot;core2/inc/classes/CommonApi.php&quot;;</span>
+<span class="x">require_once DOC_ROOT . &quot;core2/inc/classes/Routing/Router.php&quot;;</span>
 
+<span class="x">/**</span>
+<span class="x"> * </span>
+<span class="x"> */</span>
+<span class="x">class ModOrdersApi extends CommonApi {</span>
+
+<span class="x">    /**</span>
+<span class="x">     * @return mixed</span>
+<span class="x">     * @throws Zend_Db_Table_Exception</span>
+<span class="x">     * @throws Exception</span>
+<span class="x">     */</span>
+<span class="x">    public function action_index(): mixed {</span>
+
+<span class="x">        $router = new \Core2\Routing\Router(&#39;/orders/index&#39;, [</span>
+<span class="x">            &#39;&#39;                  =&gt; [&#39;get&#39; =&gt; [Api\Index::class, &#39;getOrders&#39;]],</span>
+<span class="x">            &#39;/order&#39;            =&gt; [&#39;post&#39; =&gt; [Api\Order::class, &#39;createOrder&#39;]],</span>
+<span class="x">            &#39;/order/{order_id}&#39; =&gt; [</span>
+<span class="x">                &#39;get&#39;    =&gt; [Api\Order::class, &#39;getOrder&#39;],</span>
+<span class="x">                &#39;patch&#39;  =&gt; [Api\Order::class, &#39;patchOrder&#39;],</span>
+<span class="x">                &#39;delete&#39; =&gt; [Api\Order::class, &#39;deleteOrder&#39;],</span>
+<span class="x">            ]</span>
+<span class="x">        ]);</span>
+
+<span class="x">        return $this-&gt;runRouter($router);</span>
+<span class="x">    }</span>
+
+
+<span class="x">    /**</span>
+<span class="x">     * @return mixed</span>
+<span class="x">     * @throws Exception</span>
+<span class="x">     */</span>
+<span class="x">    public function action_example(): mixed {</span>
+
+<span class="x">        $router = new \Core2\Routing\Router(&#39;/orders/example&#39;, [</span>
+<span class="x">            &#39;/test&#39; =&gt; [&#39;post&#39; =&gt; [Api\Example::class, &#39;testMethod&#39;]],</span>
+<span class="x">        ]);</span>
+
+<span class="x">        return $this-&gt;runRouter($router);</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</code></pre></div></p>
 
 
 

@@ -88,6 +88,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1131,6 +1136,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Обзор
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="review.html" class="md-nav__link md-nav__link--active">
         
   
@@ -1140,6 +1156,32 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Структура модуля
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1389,6 +1431,27 @@
   
   <span class="md-ellipsis">
     Паттерны проектирования
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../best_practice/style/database.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    База данных
   </span>
   
 
@@ -1691,6 +1754,23 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Структура модуля
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1709,7 +1789,28 @@
 
   <h1>Обзор</h1>
 
-<p>Описание</p>
+<h2 id="_1">Структура модуля</h2>
+<p>Модули находятся в папке проекта <code>/mod</code>. 
+У каждого модуля есть папка с версией и каждая такая версия полностью самостоятельна. 
+Одновременно может работать только одна версия указанная в базе данных, в таблице модулей   </p>
+<div class="highlight"><pre><span></span><code> .
+ ├─ /var/www/project.com/
+ │  ├─ htdocs/
+ │  │  └─ mod/ 
+ │  │     └─ orders/  # папка модуля
+ │  │        └─ v1.0.0/  # папка с версией модуля, все файлы модуля находятся тут
+ │  │           ├─ Api\  # папка с файлами которые необходимы для работы api модуля 
+ │  │           │  └─ schema.json  # файл со списком всех ройутов, которые доступны для использования в этом модуле 
+ │  │           ├─ assets\  # папка с файлами, которые необходимы для работы модуля, как правило js, css, html
+ │  │           ├─ classes\  # набор php файлов, в которых реализован функционал выполняемый модулем  
+ │  │           ├─ Model\  # папка со списком файлов моделей таблиц этого модуля  
+ │  │           ├─ ModAjax.php  # файл реализующий логику сохранения всех форм в интерфейсе модуля  
+ │  │           ├─ ModOrdersApi.php  # файл контроллер для описания работы api модуля 
+ │  │           ├─ ModOrdersCli.php  # файл контроллер реализующий методы для работы в режиме cli (для планировщика) 
+ │  │           ├─ ModOrdersController.php  # файл контроллер реализующий базовую логику для работы интерфейса модуля
+ │  │           ├─ conf.ini  # конфигурационный файл модуля
+ │  │           └─ composer.json  # файл для описания дополнительных библиотек, которые нужны для работы модуля   
+</code></pre></div>
 
 
 
