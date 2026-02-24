@@ -1,179 +1,179 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://n2ref.github.io/index.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/index.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/best_practice/module/classes.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/best_practice/module/classes.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/best_practice/module/controller.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/best_practice/module/controller.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/best_practice/module/model.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/best_practice/module/model.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/best_practice/module/scripts.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/best_practice/module/scripts.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/best_practice/style/database.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/best_practice/style/database.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/best_practice/style/patterns.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/best_practice/style/patterns.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/best_practice/style/psr.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/best_practice/style/psr.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/framework/interfaces.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/framework/interfaces.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/framework/classes/acl.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/framework/classes/acl.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/framework/classes/cache.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/framework/classes/cache.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/framework/classes/common.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/framework/classes/common.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/framework/classes/common_api.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/framework/classes/common_api.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/framework/classes/db.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/framework/classes/db.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/framework/classes/edit.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/framework/classes/edit.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/framework/classes/log.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/framework/classes/log.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/framework/classes/panel.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/framework/classes/panel.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/framework/classes/table.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/framework/classes/table.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/framework/classes/tabs.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/framework/classes/tabs.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/framework/classes/templater.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/framework/classes/templater.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/framework/classes/tool.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/framework/classes/tool.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/framework/edit/tags.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/framework/edit/tags.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/framework/modules/admin.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/framework/modules/admin.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/framework/modules/cron.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/framework/modules/cron.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/framework/modules/profile.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/framework/modules/profile.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/framework/modules/queue.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/framework/modules/queue.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/framework/modules/review.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/framework/modules/review.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/framework/modules/webservice.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/framework/modules/webservice.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/modules/cli.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/modules/cli.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/modules/config.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/modules/config.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/modules/controller.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/modules/controller.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/modules/handler.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/modules/handler.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/modules/install.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/modules/install.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/modules/models.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/modules/models.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/modules/rest.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/modules/rest.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/modules/review.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/modules/review.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/other/docs.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/other/docs.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/other/tests.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/other/tests.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/other/translations.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/other/translations.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/setup/install.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/setup/install.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/setup/themes.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/setup/themes.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/setup/settings/config.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/setup/settings/config.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/setup/settings/modules.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/setup/settings/modules.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
     <url>
-         <loc>https://n2ref.github.io/setup/settings/users_roles.html</loc>
+         <loc>https://n2ref.github.io/core2-docs/setup/settings/users_roles.html</loc>
          <lastmod>2026-02-24</lastmod>
     </url>
 </urlset>
