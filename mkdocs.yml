@@ -78,15 +78,15 @@ nav:
     - Конфиг:               modules/config.md
     - REST запросы:         modules/rest.md
   - Best practice:
-      - Стили написания кода:
-        - Паттерны проектирования: best_practice\style\patterns.md
-        - База данных:             best_practice\style\database.md
-        - PSR:                     best_practice\style\psr.md
-      - Модули:
-        - Модели таблиц:        best_practice\module\model.md
-        - Классы:               best_practice\module\classes.md
-        - Скрипты для браузера: best_practice\module\scripts.md
-        - Контроллер:           best_practice\module\controller.md
+    - Стили написания кода:
+      - Паттерны проектирования: best_practice/style/patterns.md
+      - База данных:             best_practice/style/database.md
+      - PSR:                     best_practice/style/psr.md
+    - Модули:
+      - Модели таблиц:        best_practice/module/model.md
+      - Классы:               best_practice/module/classes.md
+      - Скрипты для браузера: best_practice/module/scripts.md
+      - Контроллер:           best_practice/module/controller.md
   - Другое:
     - Тестирование: other/tests.md
     - Переводы:     other/translations.md
