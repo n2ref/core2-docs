@@ -1,7 +1,7 @@
 site_name: Core2 framework
-site_url: https://github.com/shabuninil/core2
+site_url: https://n2ref.github.io/core2-docs
 repo_name: Core2
-repo_url: https://github.com/shabuninil/core2
+repo_url: https://github.com/n2ref/core2
 theme:
   name: material
   language: ru

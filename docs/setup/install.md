@@ -49,7 +49,7 @@ $ sudo apt install mariadb-server
 
 
 ## Установка Core2
-1) Скачайте архив c последней версией на [github.com](https://github.com/shabuninil/core2/archive/refs/heads/master.zip)
+1) Скачайте архив c последней версией на [github.com](https://github.com/n2ref/core2/archive/refs/heads/master.zip)
 
 2) В директории `DOCUMENT_ROOT` вашего проекта создайте папку с названием `core2` и разместите в нее содержимое архива
 
@@ -97,7 +97,7 @@ try {
 CREATE SCHEMA project_com COLLATE utf8mb4_general_ci;
 ```
 
-7) Скачайте и выполните этот [sql](https://github.com/shabuninil/core2/blob/master/db.sql) скрипт, чтобы в вашей базе данных добавились необходимые таблицы.
+7) Скачайте и выполните этот [sql](https://github.com/n2ref/core2/blob/master/db.sql) скрипт, чтобы в вашей базе данных добавились необходимые таблицы.
    Для этого можно воспользоваться командной строкой.
 ```shell
 $ mysql -u your_user_name -p project_com < db.sql
