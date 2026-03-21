@@ -2,8 +2,8 @@
 
 * 1 CPU, 515 Mb RAM, 1Gb HDD
 * PHP 7.4 или больше
-* PHP расширения `zip`, `mbstring`, `curl`, `gd`, `intl`, `PDO`, `pdo_mysql`, `xml`, `fpm`
-* MySQL или MariaDb база данных
+* PHP расширения `zip`, `mbstring`, `curl`, `gd`, `intl`, `PDO`, `pdo_mysql` (или `pdo_pgsql` для PostgreSQL), `xml`, `fpm`
+* MySQL / MariaDb или PostgreSQL база данных
 
 ## Установка компонентов на Linux (Debian / Ubuntu)
 
@@ -103,10 +103,20 @@ CREATE SCHEMA project_com COLLATE utf8mb4_general_ci;
 $ mysql -u your_user_name -p project_com < db.sql
 ```
 
+!!! note "Важно"
+    Скрипт `db.sql` создает только структуру таблиц и не добавляет пользователя по умолчанию.
+    После импорта создайте администратора вручную, например:
+
+    ```sql
+    INSERT INTO `core_users` (`u_login`, `u_pass`, `visible`, `is_admin_sw`, `date_added`)
+    VALUES ('admin', 'ad7123ebca969de21e49c12a7d69ce25', 'Y', 'Y', NOW());
+    ```
+
 8) В директории рядом с файлом `index.php` создайте файл конфигурации `conf.ini` и поместите в него следующий текст.
    Замените значения для доступа к вашей базе данных, `project.com` замените на адрес вашего будущего проекта.
 ```ini
 [production]
+database.adapter          = Pdo_Mysql
 database.params.host      = localhost
 database.params.port      = 3306
 database.params.dbname    = "project_com"
@@ -123,15 +133,32 @@ log.system.file   = /var/www/project.com/logs/access.log
 log.system.writer = file
 ```
 
+Пример для PostgreSQL:
+
+```ini
+[production]
+database.adapter          = Pdo_Pgsql
+database.params.host      = localhost
+database.params.port      = 5432
+database.params.dbname    = "project_com"
+database.params.username  = "your_user_name"
+database.params.password  = "your_user_pass"
+database.schema           = public
+```
+
 9) Скачайте последнюю версию Composer с сайта [getcomposer.org](https://getcomposer.org/download/) или по прямой [ссылке](https://getcomposer.org/download/latest-stable/composer.phar) 
 
 10) Скопируйте скаченный файл `composer.phar` в папку `core2`
 
 11) Откройте консоль и выполните команды для установки зависимых пакетов  
 ```shell
-$ сd /var/www/project.com/htdocs/core2
-$ php composer.phar update
+$ cd /var/www/project.com/htdocs/core2
+$ php composer.phar install
 ```
+
+!!! tip "Рекомендация"
+    Для production лучше использовать `composer install` (по `composer.lock`) вместо `composer update`,
+    чтобы избежать неожиданных обновлений зависимостей.
 
 
 ## Настройка веб сервера
@@ -248,4 +275,5 @@ http://project.com
 
 В случае успеха вы должны будите увидеть страницу логина
 
-Войдите в приложение используя логин и пароль по умолчанию `admin` `admin`. После входа обязательно смените пароль на другой.
+Войдите в приложение используя логин `admin` и пароль `admin` (если вы создали пользователя SQL-запросом выше).
+После входа обязательно смените пароль на другой.
