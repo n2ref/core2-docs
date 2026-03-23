@@ -88,6 +88,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#core2" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -951,6 +956,19 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Обзор
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="review.html" class="md-nav__link md-nav__link--active">
         
@@ -961,6 +979,52 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Основные системные модули
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Как отличить системный модуль
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Рекомендации
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1713,6 +1777,43 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Основные системные модули
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Как отличить системный модуль
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Рекомендации
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1730,9 +1831,25 @@
   
 
 
-  <h1>Обзор</h1>
-
-<p>Описание</p>
+<h1 id="core2">Системные модули Core2</h1>
+<p>Системные модули — это модули, которые поставляются вместе с ядром Core2 и обеспечивают базовые функции платформы.
+Они располагаются в <code>core2/mod</code> и могут обновляться вместе с ядром.</p>
+<h2 id="_1">Основные системные модули</h2>
+<ul>
+<li><code>admin</code> — администрирование системы, пользователи, роли, настройки, модули.</li>
+<li><code>cron</code> — планировщик задач (запуск методов <code>Mod&lt;ModuleName&gt;Cli</code>).</li>
+<li><code>queue</code> — выполнение фоновых задач/очередей.</li>
+<li><code>profile</code> — профиль пользователя и связанные настройки.</li>
+<li><code>webservice</code> — REST/API интерфейсы и публикация сервисов.</li>
+</ul>
+<h2 id="_2">Как отличить системный модуль</h2>
+<p>В настройках модуля признак «Системный = Да» означает, что файлы модуля берутся из <code>core2/mod/...</code>, а не из проектного <code>mod/...</code>.</p>
+<h2 id="_3">Рекомендации</h2>
+<ul>
+<li>Не правьте системные модули напрямую в production.</li>
+<li>Проектные доработки выносите в отдельные модули или расширения.</li>
+<li>При обновлении core2 сначала проверяйте совместимость API и очередей.</li>
+</ul>
 
 
 

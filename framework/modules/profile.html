@@ -88,6 +88,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#profile" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1014,6 +1019,19 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Profile
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="profile.html" class="md-nav__link md-nav__link--active">
         
@@ -1024,6 +1042,52 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Что обычно включает
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Интеграция
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Рекомендации
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1713,6 +1777,43 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Что обычно включает
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Интеграция
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Рекомендации
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1730,9 +1831,23 @@
   
 
 
-  <h1>Profile</h1>
-
-
+<h1 id="profile">Системный модуль Profile</h1>
+<p>Модуль <code>profile</code> отвечает за пользовательские настройки и данные профиля.</p>
+<h2 id="_1">Что обычно включает</h2>
+<ul>
+<li>просмотр и редактирование данных пользователя;</li>
+<li>смена пароля и персональных параметров;</li>
+<li>пользовательские настройки интерфейса (если включены в проекте).</li>
+</ul>
+<h2 id="_2">Интеграция</h2>
+<p>Модуль работает в связке с системой авторизации и ролей Core2.
+При использовании LDAP/внешней авторизации часть полей может быть недоступна для изменения локально.</p>
+<h2 id="_3">Рекомендации</h2>
+<ul>
+<li>Ограничивайте редактируемые поля с учетом источника авторизации.</li>
+<li>Не храните чувствительные данные в открытом виде.</li>
+<li>Для кастомных полей профиля используйте отдельные модели/таблицы модуля, а не хаотичные поля в системных таблицах.</li>
+</ul>
 
 
 

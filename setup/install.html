@@ -1913,8 +1913,8 @@
 <ul>
 <li>1 CPU, 515 Mb RAM, 1Gb HDD</li>
 <li>PHP 7.4 или больше</li>
-<li>PHP расширения <code>zip</code>, <code>mbstring</code>, <code>curl</code>, <code>gd</code>, <code>intl</code>, <code>PDO</code>, <code>pdo_mysql</code>, <code>xml</code>, <code>fpm</code></li>
-<li>MySQL или MariaDb база данных</li>
+<li>PHP расширения <code>zip</code>, <code>mbstring</code>, <code>curl</code>, <code>gd</code>, <code>intl</code>, <code>PDO</code>, <code>pdo_mysql</code> (или <code>pdo_pgsql</code> для PostgreSQL), <code>xml</code>, <code>fpm</code></li>
+<li>MySQL / MariaDb или PostgreSQL база данных</li>
 </ul>
 <h2 id="linux-debian-ubuntu">Установка компонентов на Linux (Debian / Ubuntu)</h2>
 <p>Выполните консольные команды для обновления системы
@@ -1980,9 +1980,18 @@ $<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>
    Для этого можно воспользоваться командной строкой.
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>mysql<span class="w"> </span>-u<span class="w"> </span>your_user_name<span class="w"> </span>-p<span class="w"> </span>project_com<span class="w"> </span>&lt;<span class="w"> </span>db.sql
 </code></pre></div></p>
+<p>!!! note "Важно"
+    Скрипт <code>db.sql</code> создает только структуру таблиц и не добавляет пользователя по умолчанию.
+    После импорта создайте администратора вручную, например:</p>
+<pre><code>```sql
+INSERT INTO `core_users` (`u_login`, `u_pass`, `visible`, `is_admin_sw`, `date_added`)
+VALUES ('admin', 'ad7123ebca969de21e49c12a7d69ce25', 'Y', 'Y', NOW());
+```
+</code></pre>
 <p>8) В директории рядом с файлом <code>index.php</code> создайте файл конфигурации <code>conf.ini</code> и поместите в него следующий текст.
    Замените значения для доступа к вашей базе данных, <code>project.com</code> замените на адрес вашего будущего проекта.
 <div class="highlight"><pre><span></span><code><span class="k">[production]</span>
+<span class="na">database.adapter</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="s">Pdo_Mysql</span>
 <span class="na">database.params.host</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s">localhost</span>
 <span class="na">database.params.port</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s">3306</span>
 <span class="na">database.params.dbname</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;project_com&quot;</span>
@@ -1998,12 +2007,25 @@ $<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>
 <span class="na">log.system.file</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s">/var/www/project.com/logs/access.log</span>
 <span class="na">log.system.writer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">file</span>
 </code></pre></div></p>
+<p>Пример для PostgreSQL:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[production]</span>
+<span class="na">database.adapter</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="s">Pdo_Pgsql</span>
+<span class="na">database.params.host</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s">localhost</span>
+<span class="na">database.params.port</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s">5432</span>
+<span class="na">database.params.dbname</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;project_com&quot;</span>
+<span class="na">database.params.username</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;your_user_name&quot;</span>
+<span class="na">database.params.password</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;your_user_pass&quot;</span>
+<span class="na">database.schema</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="s">public</span>
+</code></pre></div>
 <p>9) Скачайте последнюю версию Composer с сайта <a href="https://getcomposer.org/download/">getcomposer.org</a> или по прямой <a href="https://getcomposer.org/download/latest-stable/composer.phar">ссылке</a> </p>
 <p>10) Скопируйте скаченный файл <code>composer.phar</code> в папку <code>core2</code></p>
 <p>11) Откройте консоль и выполните команды для установки зависимых пакетов<br />
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>сd<span class="w"> </span>/var/www/project.com/htdocs/core2
-$<span class="w"> </span>php<span class="w"> </span>composer.phar<span class="w"> </span>update
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/var/www/project.com/htdocs/core2
+$<span class="w"> </span>php<span class="w"> </span>composer.phar<span class="w"> </span>install
 </code></pre></div></p>
+<p>!!! tip "Рекомендация"
+    Для production лучше использовать <code>composer install</code> (по <code>composer.lock</code>) вместо <code>composer update</code>,
+    чтобы избежать неожиданных обновлений зависимостей.</p>
 <h2 id="_2">Настройка веб сервера</h2>
 <p>Для запуска приложения необходимо настроить http сервер.</p>
 <h3 id="apache">Рекомендуемые настройки Apache</h3>
@@ -2087,7 +2109,8 @@ $<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> <
 <div class="highlight"><pre><span></span><code>http://project.com
 </code></pre></div>
 <p>В случае успеха вы должны будите увидеть страницу логина</p>
-<p>Войдите в приложение используя логин и пароль по умолчанию <code>admin</code> <code>admin</code>. После входа обязательно смените пароль на другой.</p>
+<p>Войдите в приложение используя логин <code>admin</code> и пароль <code>admin</code> (если вы создали пользователя SQL-запросом выше).
+После входа обязательно смените пароль на другой.</p>
 
 
 

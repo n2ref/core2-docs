@@ -88,6 +88,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#webservice" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1056,6 +1061,19 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Webservice
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="webservice.html" class="md-nav__link md-nav__link--active">
         
@@ -1066,6 +1084,52 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Назначение
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Базовые принципы
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Практика
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1713,6 +1777,43 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Назначение
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Базовые принципы
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Практика
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1730,9 +1831,26 @@
   
 
 
-  <h1>Webservice</h1>
-
-
+<h1 id="webservice">Системный модуль Webservice</h1>
+<p>Модуль <code>webservice</code> отвечает за публикацию API/REST интерфейсов системы.</p>
+<h2 id="_1">Назначение</h2>
+<ul>
+<li>маршрутизация и обработка API-запросов;</li>
+<li>работа с версиями API;</li>
+<li>интеграция со схемами/документацией OpenAPI.</li>
+</ul>
+<h2 id="_2">Базовые принципы</h2>
+<ul>
+<li>Разделяйте API по версиям.</li>
+<li>Стабилизируйте контракты (не ломайте ответы без новой версии).</li>
+<li>Для ошибок используйте единый формат ответа и корректные HTTP-коды.</li>
+</ul>
+<h2 id="_3">Практика</h2>
+<ul>
+<li>Бизнес-логику держите в классах/моделях модуля, а не в API-контроллере.</li>
+<li>Проверяйте аутентификацию и авторизацию на уровне каждого ресурса.</li>
+<li>Для публичных методов обязательно описывайте маршруты и схемы в OpenAPI.</li>
+</ul>
 
 
 

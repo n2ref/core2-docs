@@ -88,6 +88,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#confini" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1256,6 +1261,19 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Конфиг
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="config.html" class="md-nav__link md-nav__link--active">
         
@@ -1266,6 +1284,52 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Для чего используется
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Пример
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Рекомендации
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1711,6 +1775,43 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Для чего используется
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Пример
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Рекомендации
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1728,9 +1829,32 @@
   
 
 
-  <h1>Конфиг</h1>
+<h1 id="confini">Конфиг модуля (<code>conf.ini</code>)</h1>
+<p>У каждого модуля может быть свой файл конфигурации <code>conf.ini</code> в корне версии модуля.</p>
+<div class="highlight"><pre><span></span><code>mod/&lt;module_name&gt;/v&lt;version&gt;/conf.ini
+</code></pre></div>
+<h2 id="_1">Для чего используется</h2>
+<ul>
+<li>параметры подключения к дополнительным ресурсам;</li>
+<li>feature flags модуля;</li>
+<li>настройки API/очередей/внешних интеграций;</li>
+<li>override поведения на разных окружениях.</li>
+</ul>
+<h2 id="_2">Пример</h2>
+<div class="highlight"><pre><span></span><code><span class="k">[production]</span>
+<span class="na">feature.enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
+<span class="na">api.timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">10</span>
 
-
+<span class="k">[project.com : production]</span>
+<span class="na">feature.enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">false</span>
+</code></pre></div>
+<h2 id="_3">Рекомендации</h2>
+<ul>
+<li>Используйте секции окружений (<code>production</code>, <code>&lt;host&gt; : production</code>).</li>
+<li>Не храните секреты в открытом виде в репозитории.</li>
+<li>Для значений по умолчанию задавайте безопасное поведение (fail-safe).</li>
+<li>Если параметр критичен — добавляйте валидацию при инициализации модуля.</li>
+</ul>
 
 
 

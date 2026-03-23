@@ -88,6 +88,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#admin" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -972,6 +977,19 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Admin
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="admin.html" class="md-nav__link md-nav__link--active">
         
@@ -982,6 +1000,61 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Основные функции
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Структура (упрощенно)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Важные моменты
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Практика доработок
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1713,6 +1786,52 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Основные функции
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Структура (упрощенно)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Важные моменты
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Практика доработок
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1730,9 +1849,47 @@
   
 
 
-  <h1>Admin</h1>
-
-<p>Описание</p>
+<h1 id="admin">Системный модуль Admin</h1>
+<p>Модуль <code>admin</code> отвечает за базовое администрирование Core2.</p>
+<h2 id="_1">Основные функции</h2>
+<ul>
+<li>управление пользователями и ролями;</li>
+<li>управление установленными модулями;</li>
+<li>системные настройки;</li>
+<li>служебные разделы мониторинга и сервисных задач.</li>
+</ul>
+<h2 id="_2">Структура (упрощенно)</h2>
+<div class="highlight"><pre><span></span><code>core2/mod/admin/
+├─ ModAjax.php
+├─ ModAdminApi.php
+├─ conf.ini
+├─ Model/
+│  ├─ Users.php
+│  ├─ Roles.php
+│  ├─ Modules.php
+│  └─ ...
+├─ classes/
+│  ├─ users/
+│  ├─ roles/
+│  ├─ modules/
+│  └─ ...
+└─ assets/
+   ├─ js/
+   ├─ css/
+   └─ html/
+</code></pre></div>
+<h2 id="_3">Важные моменты</h2>
+<ul>
+<li><code>ModAjax.php</code> обрабатывает ajax-действия и операции сохранения.</li>
+<li><code>ModAdminApi.php</code> содержит API-эндпоинты модуля admin.</li>
+<li>Модели в <code>Model/</code> используются для работы с БД (рекомендуемый путь вместо «сырого» SQL в контроллерах).</li>
+</ul>
+<h2 id="_4">Практика доработок</h2>
+<ul>
+<li>Для проектной логики не перегружайте <code>admin</code>: лучше отдельный модуль.</li>
+<li>Если добавляете операции с БД, выносите их в методы соответствующих моделей.</li>
+<li>При доработках прав доступа обязательно проверяйте сценарии роли «по умолчанию» и admin-пользователей.</li>
+</ul>
 
 
 

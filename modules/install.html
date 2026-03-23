@@ -88,6 +88,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1235,6 +1240,19 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Установка
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="install.html" class="md-nav__link md-nav__link--active">
         
@@ -1245,6 +1263,61 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1) Ручная установка
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2) Установка из архива
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Обязательный минимум структуры
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      После установки
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1711,6 +1784,52 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1) Ручная установка
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2) Установка из архива
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Обязательный минимум структуры
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      После установки
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1728,9 +1847,50 @@
   
 
 
-  <h1>Установка</h1>
-
-
+<h1 id="_1">Установка модуля</h1>
+<p>Модуль можно установить двумя основными способами: вручную или из архива через admin.</p>
+<h2 id="1">1) Ручная установка</h2>
+<ol>
+<li>Скопируйте файлы модуля в проект:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>/var/www/&lt;project&gt;/htdocs/mod/&lt;module_name&gt;/v&lt;version&gt;/
+</code></pre></div>
+<ol>
+<li>Добавьте (при необходимости) структуру БД модуля.</li>
+<li>Войдите в <code>Admin -&gt; Модули</code> и создайте запись модуля:</li>
+<li>идентификатор (<code>module_id</code>),</li>
+<li>версия,</li>
+<li>системный/проектный,</li>
+<li>отображение в меню.</li>
+<li>Проверьте права ролей и доступность разделов.</li>
+</ol>
+<h2 id="2">2) Установка из архива</h2>
+<ol>
+<li>Откройте <code>Admin -&gt; Модули -&gt; Доступные модули</code>.</li>
+<li>Загрузите архив модуля.</li>
+<li>Выполните установку из списка доступных.</li>
+</ol>
+<h2 id="_2">Обязательный минимум структуры</h2>
+<div class="highlight"><pre><span></span><code>v&lt;version&gt;/
+├─ Mod&lt;ModuleName&gt;Controller.php
+├─ ModAjax.php
+├─ conf.ini
+├─ classes/
+└─ Model/
+</code></pre></div>
+<p>Дополнительно по необходимости:</p>
+<ul>
+<li><code>Api/</code> + <code>Mod&lt;ModuleName&gt;Api.php</code> — REST/API,</li>
+<li><code>Mod&lt;ModuleName&gt;Cli.php</code> — CLI/планировщик,</li>
+<li><code>assets/</code> — JS/CSS/HTML,</li>
+<li><code>composer.json</code> — зависимости модуля.</li>
+</ul>
+<h2 id="_3">После установки</h2>
+<ul>
+<li>Проверьте, что модуль отображается в меню (если должен).</li>
+<li>Проверьте права ролей «по умолчанию».</li>
+<li>Прогоните smoke-check ключевых сценариев (список, форма, сохранение, удаление, API/CLI если есть).</li>
+</ul>
 
 
 

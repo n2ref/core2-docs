@@ -88,6 +88,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -568,6 +573,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Db
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="db.html" class="md-nav__link md-nav__link--active">
         
   
@@ -577,6 +593,50 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Базовая конфигурация
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Получение соединения
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Замечания
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1714,6 +1774,41 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Базовая конфигурация
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Получение соединения
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Замечания
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1732,7 +1827,39 @@
 
   <h1>Db</h1>
 
-
+<p>Класс <code>Db</code> отвечает за подключение к базе данных, создание моделей и работу с конфигурацией БД.</p>
+<h2 id="_1">Базовая конфигурация</h2>
+<p>Минимальный пример (<code>conf.ini</code>):</p>
+<div class="highlight"><pre><span></span><code><span class="k">[production]</span>
+<span class="na">database.adapter</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="s">Pdo_Mysql</span>
+<span class="na">database.params.host</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s">127.0.0.1</span>
+<span class="na">database.params.port</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s">3306</span>
+<span class="na">database.params.dbname</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;project_com&quot;</span>
+<span class="na">database.params.username</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;db_user&quot;</span>
+<span class="na">database.params.password</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;db_pass&quot;</span>
+</code></pre></div>
+<p>Для PostgreSQL:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[production]</span>
+<span class="na">database.adapter</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="s">Pdo_Pgsql</span>
+<span class="na">database.params.host</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s">127.0.0.1</span>
+<span class="na">database.params.port</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s">5432</span>
+<span class="na">database.params.dbname</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;project_com&quot;</span>
+<span class="na">database.params.username</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;db_user&quot;</span>
+<span class="na">database.params.password</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;db_pass&quot;</span>
+<span class="na">database.schema</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="s">public</span>
+</code></pre></div>
+<h2 id="_2">Получение соединения</h2>
+<p>В прикладном коде обычно используется <code>$this-&gt;db</code> (инициализируется ядром).</p>
+<p>Создание отдельного подключения:</p>
+<div class="highlight"><pre><span></span><code><span class="x">/** @var Db $dbService */</span>
+<span class="x">$db = $dbService-&gt;newConnector(&#39;project_com&#39;, &#39;db_user&#39;, &#39;db_pass&#39;, &#39;127.0.0.1:3306&#39;);</span>
+</code></pre></div>
+<h2 id="_3">Замечания</h2>
+<ul>
+<li>Поддерживаются адаптеры <code>Pdo_Mysql</code> и <code>Pdo_Pgsql</code>.</li>
+<li>Подключения/модели модулей кэшируются в Registry.</li>
+<li>Часовой пояс и SQL mode могут применяться автоматически в зависимости от конфигурации.</li>
+</ul>
 
 
 

@@ -88,6 +88,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -994,6 +999,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Cron
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="cron.html" class="md-nav__link md-nav__link--active">
         
   
@@ -1003,6 +1019,50 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Откуда берутся задачи
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ручной запуск через CLI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Практические рекомендации
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1714,6 +1774,41 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Откуда берутся задачи
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ручной запуск через CLI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Практические рекомендации
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1732,7 +1827,49 @@
 
   <h1>Cron</h1>
 
+<p>Системный модуль <code>cron</code> предназначен для запуска фоновых задач по расписанию внутри Core2.</p>
+<blockquote>
+<p>Речь идет о задачах в модуле <code>cron</code> Core2, а не о Linux crontab.</p>
+</blockquote>
+<h2 id="_1">Откуда берутся задачи</h2>
+<p>Задачи формируются из CLI-классов модулей:</p>
+<ul>
+<li>файл: <code>Mod&lt;ModuleName&gt;Cli.php</code></li>
+<li>класс: <code>Mod&lt;ModuleName&gt;Cli</code></li>
+<li>метод: публичный метод класса</li>
+</ul>
+<p>Пример для модуля <code>orders</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="x">require_once DOC_ROOT . &#39;core2/inc/classes/CommonCli.php&#39;;</span>
 
+<span class="x">class ModOrdersCli extends \Core2\CommonCli {</span>
+
+<span class="x">    /**</span>
+<span class="x">     * Пересчет агрегатов по заказам</span>
+<span class="x">     */</span>
+<span class="x">    public function recalcAggregates(): void {</span>
+<span class="x">        // ...</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</code></pre></div>
+<p>Описание метода (PHPDoc) используется в интерфейсе планировщика как название/описание задачи,
+поэтому рекомендуется писать короткий и понятный комментарий.</p>
+<h2 id="cli">Ручной запуск через CLI</h2>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>php<span class="w"> </span>core2/cli.php<span class="w"> </span>--module<span class="w"> </span>orders<span class="w"> </span>--action<span class="w"> </span>recalcAggregates
+</code></pre></div>
+<p>С параметрами:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>php<span class="w"> </span>core2/cli.php<span class="w"> </span>--module<span class="w"> </span>orders<span class="w"> </span>--action<span class="w"> </span>exampleMethod<span class="w"> </span>--param<span class="w"> </span><span class="m">123</span><span class="w"> </span>--param<span class="w"> </span><span class="s2">&quot;foo bar&quot;</span>
+</code></pre></div>
+<p>Параметры <code>--param</code> передаются в метод по порядку.</p>
+<p>Подробная справка:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>php<span class="w"> </span>core2/cli.php<span class="w"> </span>--help
+</code></pre></div>
+<h2 id="_2">Практические рекомендации</h2>
+<ul>
+<li>Делайте задачи идемпотентными (повторный запуск не должен ломать данные).</li>
+<li>Логируйте прогресс и ошибки.</li>
+<li>Для долгих задач добавляйте ограничение по времени/батчи.</li>
+<li>Явно валидируйте входные параметры CLI-методов.</li>
+</ul>
 
 
 

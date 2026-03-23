@@ -88,6 +88,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#queue" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1035,6 +1040,19 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Queue
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="queue.html" class="md-nav__link md-nav__link--active">
         
@@ -1045,6 +1063,61 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Для чего нужен
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Базовый поток
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Связь с воркерами
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Рекомендации
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1713,6 +1786,52 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Для чего нужен
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Базовый поток
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Связь с воркерами
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Рекомендации
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1730,9 +1849,30 @@
   
 
 
-  <h1>Queue</h1>
-
-
+<h1 id="queue">Системный модуль Queue</h1>
+<p>Модуль <code>queue</code> предназначен для фонового выполнения задач.</p>
+<h2 id="_1">Для чего нужен</h2>
+<ul>
+<li>запуск длительных операций вне HTTP-запроса;</li>
+<li>распределение нагрузки между воркерами;</li>
+<li>асинхронная обработка задач модулей.</li>
+</ul>
+<h2 id="_2">Базовый поток</h2>
+<ol>
+<li>Модуль формирует задачу и отправляет её через клиент очереди.</li>
+<li>Воркер получает задачу и выполняет обработчик.</li>
+<li>Результат/ошибка логируются в системные логи.</li>
+</ol>
+<h2 id="_3">Связь с воркерами</h2>
+<p>В Core2 для работы очередей используется инфраструктура воркеров (<code>worker.php</code>, <code>WorkerManager</code>, <code>WorkerClient</code>).
+Конкретный backend очереди зависит от конфигурации и версии ядра.</p>
+<h2 id="_4">Рекомендации</h2>
+<ul>
+<li>Делайте обработчики идемпотентными.</li>
+<li>Передавайте в задачу только необходимый payload.</li>
+<li>Ошибки фиксируйте в логах с контекстом (модуль, id сущности, тип операции).</li>
+<li>Для тяжелых задач используйте отдельные воркеры/очереди, чтобы не блокировать критичные задачи.</li>
+</ul>
 
 
 
