@@ -38,13 +38,6 @@ database.schema           = public
 $db = $dbService->newConnector('project_com', 'db_user', 'db_pass', '127.0.0.1:3306');
 ```
 
-## Работа со схемой
-
-Текущая схема/база сохраняется в `Registry` как `dbschema`.
-
-- Для MySQL: используется `database.params.dbname`
-- Для PostgreSQL: используется `database.schema`
-
 ## Замечания
 
 - Поддерживаются адаптеры `Pdo_Mysql` и `Pdo_Pgsql`.
