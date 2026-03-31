@@ -60,7 +60,53 @@ nav:
         - Table:     framework/classes/table.md
       - Интерфейсы: framework/interfaces.md
       - Поля формы:
-          - Tags:     framework/edit/tags.md
+          - Обзор: framework/edit/index.md
+          - Hidden: framework/edit/hidden.md
+          - Protect: framework/edit/protect.md
+          - Custom: framework/edit/custom.md
+          - Text: framework/edit/text.md
+          - Edit: framework/edit/edit.md
+          - Time: framework/edit/time.md
+          - Datetime local: framework/edit/datetime_local.md
+          - Date week: framework/edit/date_week.md
+          - Date month: framework/edit/date_month.md
+          - Number: framework/edit/number.md
+          - Number range: framework/edit/number_range.md
+          - Money: framework/edit/money.md
+          - File: framework/edit/file.md
+          - Link: framework/edit/link.md
+          - Search: framework/edit/search.md
+          - Date: framework/edit/date.md
+          - Datetime: framework/edit/datetime.md
+          - Color: framework/edit/color.md
+          - Coordinates: framework/edit/coordinates.md
+          - Switch: framework/edit/switch.md
+          - Combobox: framework/edit/combobox.md
+          - Date2: framework/edit/date2.md
+          - Datetime2: framework/edit/datetime2.md
+          - Modal2: framework/edit/modal2.md
+          - Modal list: framework/edit/modal_list.md
+          - Daterange: framework/edit/daterange.md
+          - Password: framework/edit/password.md
+          - Textarea: framework/edit/textarea.md
+          - Fck*: framework/edit/fck.md
+          - Radio: framework/edit/radio.md
+          - Radio2: framework/edit/radio2.md
+          - Checkbox: framework/edit/checkbox.md
+          - Checkbox2: framework/edit/checkbox2.md
+          - Select: framework/edit/select.md
+          - List: framework/edit/list.md
+          - List hidden: framework/edit/list_hidden.md
+          - Multilist: framework/edit/multilist.md
+          - Select2: framework/edit/select2.md
+          - Multiselect2: framework/edit/multiselect2.md
+          - Tags: framework/edit/tags.md
+          - Multilist2: framework/edit/multilist2.md
+          - Multilist3: framework/edit/multilist3.md
+          - Dataset: framework/edit/dataset.md
+          - XFile: framework/edit/xfile.md
+          - XFiles: framework/edit/xfiles.md
+          - Modal: framework/edit/modal.md
       - Системные модули:
         - Обзор:      framework/modules/review.md
         - Admin:      framework/modules/admin.md

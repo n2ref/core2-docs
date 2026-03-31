@@ -1,9 +1,11 @@
+# Tags (tags / TYPE_TAGS)
 
 Поле для выбора существующих значений из списка + возможность указать свои значения.
- 
+
 ![img](img/tags.png)
 
-#### Пример использования:
+## Пример использования
+
 ```php
 $list = [
     'tag1',
@@ -11,46 +13,39 @@ $list = [
     'tag3',
 ];
 
-// необязательные параметры
 $options = [
     'attr'         => 'style="width: 300px;"',
-    'placeholder'  => 'Подсказка'
+    'placeholder'  => 'Подсказка',
     'separators'   => [',', ' '],
     'input_length' => 0,
-    
+
     // https://select2.org/data-sources/ajax
     'autocomplete' => [
-       'url'      => 'index.php?module=MODULE&action=ACTION&data=MANE',
+       'url' => 'index.php?module=MODULE&action=ACTION&data=NAME',
     ]
 ];
 
-$edit->addControl('Список', $edit::TYPE_TAGS, $options); $edit->selectSQL[] = $list;
+$edit->addControl('Список', $edit::TYPE_TAGS, $options);
+$edit->selectSQL[] = $list;
 ```
 
-#### Пример ответа при использовании autocomplete
+## Пример ответа для `autocomplete`
+
 ```json
 {
   "results": [
-    {
-      "id": 1,
-      "text": "Option 1"
-    },
-    {
-      "id": 2,
-      "text": "Option 2"
-    }
+    {"id": 1, "text": "Option 1"},
+    {"id": 2, "text": "Option 2"}
   ]
 }
 ```
 
+## Пример сохранения
 
-#### Пример сохранения результата:
 ```php
-
-    $data['control']['field_name'] = $data['control']['field_name'] 
-        ? json_encode(array_values($data['control']['field_name'])) 
-        : null;
-
+$data['control']['field_name'] = $data['control']['field_name']
+    ? json_encode(array_values($data['control']['field_name']))
+    : null;
 ```
 
-Подробнее [https://select2.org/tagging](https://select2.org/tagging)
+Подробнее: [https://select2.org/tagging](https://select2.org/tagging)
