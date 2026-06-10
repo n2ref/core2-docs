@@ -13,8 +13,8 @@
 Пример
 ```php
 /**
- * @property \TableOrders         $dataTableOrders
- * @property \TableOrdersProducts $dataTableOrdersProducts
+ * @property \Orders         $dataOrders
+ * @property \OrdersProducts $dataOrdersProducts
  */
 class ModOrderingController extends Common {}
 ```
@@ -30,7 +30,7 @@ class ModOrderingController extends Common {}
 /**
  *
  */
-class TableOrdersProducts extends Zend_Db_Table_Abstract {
+class OrdersProducts extends Zend_Db_Table_Abstract {
     
     protected $_name = 'mod_orders_products';
     
